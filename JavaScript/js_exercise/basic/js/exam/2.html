@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="UTF-8">
+    <script>
+        function changeImage(){
+         var sel = document.getElementById("sel");
+         var img = document.getElementById("myImg");                       
+         var imgPath = sel.value;
+         img.src = imgPath;
+        }
+        
+    </script>
+  </head>
+<body>     
+    <select id="sel" onchange="changeImage()">
+       <option value="images/Lemon.jpg">레몬</option>
+       <option value="images/Lime.jpg">라임</option>
+       <option value="images/Strawberry.jpg">딸기</option>
+   </select>
+    
+    <img id="myImg">
+</body>
+</html>

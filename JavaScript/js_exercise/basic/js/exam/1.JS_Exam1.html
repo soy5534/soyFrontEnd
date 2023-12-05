@@ -1,0 +1,33 @@
+문제1. 화면의 색상이 적혀있는 버튼을 클릭하면 그 색상에 해당하는 박스가 나타나도록 작성한 코드이다.  박스가 나타나지  않은 원인과 조치내용(해결방법)을 작성하세요.
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>KH</title>
+<script>
+    window.onload = function() {
+        var btn = document.getElementsByTagName("button");        
+          for(var i = 0; i < 5; i++) {                      
+            btn[i].addEventListener("click", function() {
+                color = document.getElementById("color");
+                color.style.width = "100px";
+                color.style.height = "100px";
+                color.style.background = this.innerText;
+            })};
+            
+    }
+    
+</script>
+</head>
+<body>
+    <p>
+        색상을 선택하세요
+        <button>Red</button>
+        <button>Orange</button>
+        <button>Yellow</button>
+        <button>Green</button>
+        <button>Blue</button>
+    </p>
+    <div id="color"></div>
+</body>
+</html>

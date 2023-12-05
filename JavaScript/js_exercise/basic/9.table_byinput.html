@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자동 테이블 만들기</title>
+    <style>
+        table {
+            border : 1px solid #222;
+            /* border-collapse: collapse; */
+        }
+        td {
+            border : 1px solid #222;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>자동 테이블 만들기</h1>
+    <script>
+// 1. 중첩 반복문을 이용해서 3X3 테이블 만들어보기
+// 2. row, col 입력값 받아서 입력한 행, 렬로 테이블이 만들어지도록 하기
+//      - table, td css를 적용하기 (border, width, height)        
+        var row = prompt("행의 수를 입력하세요.");
+        var col = prompt("열의 수를 입력하세요.");
+        var count = 1;
+        document.write("<table>");
+            for(var i = 0; i < row; i++ ) { 
+                document.write("<tr>")
+                    for(var j = 0; j < col; j++){
+                        document.write("<td>"+count+"</td>");
+                        count = count + 1;
+                    }
+                document.write("</tr>");   
+             }
+        document.write("</table>");
+            
+                
+        // document.write("<tr>");
+        // document.write("<td>4</td>");
+        // document.write("<td>5</td>");
+        // document.write("<td>6</td>");
+        // document.write("</tr>");
+        // document.write("<tr>");
+        // document.write("<td>7</td>");
+        // document.write("<td>8</td>");
+        // document.write("<td>9</td>");
+        // document.write("</tr>");
+
+
+
+    </script>
+    
+</body>
+</html>

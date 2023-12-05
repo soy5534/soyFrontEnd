@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 실습</title>
+  <script src = https://code.jquery.com/jquery-3.7.1.min.js></script>
+
+</head>
+<body>
+  <select name="number" id="number">
+    <option value="">== 선택 ==</option>
+    <option value="1">1번</option>
+    <option value="2">2번</option>
+    <option value="3">3번</option>
+    <option value="4">4번</option>
+  </select>
+  <br><br><button id="">select버튼 확인</button>
+</body>
+<script>
+  $(function() {
+    $("select").on("change", function() {
+      // var selectedTag = $("option").filter(":selected");
+      var selectedTag = $("option:selected");
+      console.log(selectedTag.html()); // option이라 둘다 가능
+      console.log(selectedTag.val());
+    });
+  });
+</script>
+</html>

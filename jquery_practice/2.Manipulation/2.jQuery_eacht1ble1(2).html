@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src = https://code.jquery.com/jquery-3.7.1.min.js></script>
+  <style>
+    th, td {
+      border : 1px solid black;
+    }
+    fieldset {
+      width : 500px;
+      height: 200px;
+    }
+    table {
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    //window.onload = function() {}
+    $(function() {
+      $("#btn").on("click", function() {
+        var display = "";
+        $("tr").each(function(index, item) {
+          if(index > 0) {
+            var trTag = $(item);
+            var name = trTag.children().first().text();
+            var age = trTag.children().eq(1).text();
+            var addr = trTag.children().last().text();
+            display += name + ", " + age + "," + addr + "<br>";
+          }
+        })
+      })
+    });
+
+  //   $(function() {
+    
+  //   $("#btn").on("click", function() {
+  //      var display = "";
+  //       $("tr").each(function(index, item) {
+  //         if(index > 0) {   // 첫번째행 제외
+  //           var trTag = $(item);
+  //           var name = trTag.children().first().text();
+  //           var age = trTag.children().eq(1).text();
+  //           var addr = trTag.children().last().text();
+  //           display += name + ", " + age + ", " + addr + "<br>";
+  //             }          
+  //       })
+  //     });
+  // });
+
+
+
+  </script>
+
+  문제. <br>
+  학생정보 출력 버튼을 클릭시 테이블에 있는 학생 정보가 <br>
+  fieldset 안에 출력되도록 만드시오! <br>
+  <table>
+    <tr>
+      <th>이름</th>
+      <th>나이</th>
+      <th>주소</th>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>20</td>
+      <td>서울시</td>
+    </tr>
+    <tr>
+      <td>고길동</td>
+      <td>30</td>
+      <td>경기도</td>
+    </tr>
+    <tr>
+      <td>최길동</td>
+      <td>40</td>
+      <td>화성시</td>
+    </tr>
+    <tr>
+      <td>상길동</td>
+      <td>50</td>
+      <td>부천시</td>
+    </tr>
+  </table>
+  <fieldset>
+    <legend>출력</legend>
+    <span id="span1"></span>
+  </fieldset>
+  <button id="btn">학생정보 출력</button>
+</body>
+</html>

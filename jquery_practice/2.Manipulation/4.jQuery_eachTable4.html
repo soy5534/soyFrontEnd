@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src = https://code.jquery.com/jquery-3.7.1.min.js></script>
+  <style>
+  th, td {
+    border : 1px solid black;
+  }
+  fieldset {
+    width : 500px;
+    height: 200px;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  .title { background-color: black; color: white;}
+  .name { background-color: #ffbe0b;}
+  .age { background-color: #fb5607;}
+  .addr { background-color: #ff006e;}
+  
+  #result {
+    border: 3px solid red;
+    height: 200px;
+    width: 500px;
+  }
+</style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td></td>
+      <th>이름</th>
+      <th>나이</th>
+      <th>주소</th>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="" id=""></td>
+      <td>홍길동</td>
+      <td>20</td>
+      <td>서울시</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="" id=""></td>
+      <td>고길동</td>
+      <td>30</td>
+      <td>경기도</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="" id=""></td>
+      <td>최길동</td>
+      <td>40</td>
+      <td>화성시</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="" id=""></td>
+      <td>상길동</td>
+      <td>50</td>
+      <td>부천시</td>
+    </tr>
+  </table>
+  <br><br>
+  <label for="">출력</label>
+  <div id="result"></div>
+  <button id="print">출력</button>
+  <script>
+    $("#print").on("click", function() {
+      var display = "";
+      var flag = false;
+      $("tr").each(function(index, item) {
+        if(index > 0) {
+          var tdTag = $(item).children();
+          var checkbox = tdTag.first().children();
+          if(checkbox.is(":checked")) {          
+            var name = tdTag.eq(1).html();
+            var age = tdTag.eq(2).html();
+            var addr = tdTag.eq(3).html();
+          display += name +", " + age + ", " + addr + "<br>"
+        }}
+        
+      }
+      );
+      $("#result").html(display);
+    });
+  </script>
+</body>
+</html>

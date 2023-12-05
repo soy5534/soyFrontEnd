@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery each() 메소드1</title>
+  <script src = https://code.jquery.com/jquery-3.7.1.min.js></script>
+</head>
+<input>
+  <select name="" id="">
+    <option value="1">1번</option>
+    <option value="2">2번</option>
+    <option value="3">3번</option>
+  </select>
+  <br>
+  <input type="button" value="select 버튼 확인" id="selectBtn">
+</body>
+<script>
+
+  $("#selectBtn").on("click", function() {
+    var selectedTag
+    = $("option").filter(":selected");
+    console.log(selectedTag.text());
+    console.log(selectedTag.val());
+  });
+
+  //   $("option").each(function(index, item) {
+  //     if($(item).is(":selected")) {
+  //       console.log($(item).text());
+  //       console.log($(item).val());
+  //     }
+  //   })
+  // })
+
+  // $("#selectBtn").on("click", function() {
+  //   var optTags = $("select option");
+  //   optTags.each(function(index, item) {
+  //     if($(item).is(":selected")) {
+  //     console.log($(item).text());
+  //     console.log($(item).val());
+  //   }
+  //   });
+  // });
+
+
+
+  // document.querySelector("#selectBtn")
+  // .addEventListener("click", function() {    
+  //   var optTags =
+  //    document.querySelectorALL("select option");
+  //     // console.log(optTags);
+  //   for(var i = 0; i < optTags.length; i++) {
+  //     if(optTags[i].selected) {
+  //       console.log(optTags[i].innerHTML);
+  //       console.log(optTags[i].value);
+  //     }
+  //   }
+  // })
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+   // window.onload = function() { 안에 넣어야 스크립트를 앞에써도 정상동작 //
+    window.onload = function() {
+        var all = document.getElementById("all");
+        all.addEventListener('click', function() {
+            checks = document.getElementsByName("hobby");
+            var selected = false;
+
+            if(all.checked) {
+              selected = true;
+            }
+            
+            for ( var i = 0; i < checks.length; i++) {
+                checks[i].checked = selected;
+            }
+        });
+    }
+</script>
+</head>
+<body>
+    <input type="checkbox" name="all" id="all" value="모든항목선택">모든항목선택
+    
+    <p>
+        취미(중복선택) : <input type="checkbox" name="hobby" value="피아노">
+        피아노
+        <input type="checkbox" name="hobby" value="게임">게임
+        <input type="checkbox" name="hobby" value="테니스">테니스
+        <input type="checkbox" name="hobby" value="등산">등산
+    </p>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자스 배열문제1</title>
+</head>
+<body>
+    <h1> 배열 실습 문제 </h1>
+문제1. 다음 보기에 있는 데이터들은 배열로 받고 하나의 배열로 합치도록 하여라.<br>
+    이때 입력 필드에 배열에 있는 데이터를 전송하면 배열의 alert를 통하여<br>
+    배열의 위치를 알려주고, 없으면 "존재하지 않습니다" 를 알려주어라.<br>
+<fieldset>
+    <legend>보기</legend>
+    <label id="la1">사과,바나나,당근</label><br>
+    <label id="la2">김밥,치즈,떡볶이,햄버거</label><br>
+    <label id="la3">환타,사이다,콜라</label><br>
+    <label id="la4">고양이,강아지</label><br>
+</fieldset><br>
+    <input type="text" placeholder="찾을 문자열을 입력하세요" size="100" id="text1">
+<div id="result1"> </div>
+<button onclick="findItems();"> 전송 및 처리 </button>
+<br><br>
+<hr><hr>
+<br><br>
+문제2. 다음 보기에 있는 문자열을 가지고 정답과 같이 만들어라. (별도의 문자열을 쓰면 안됨)<br>
+    그리고 출력 부분에 출력하도록 하여라.
+    정답 : "khlove"
+<fieldset>
+    <legend>보기</legend>
+    <label id="stringla1">h k</label><br>
+    <label id="stringla2">e v o l</label><br>
+</fieldset><br>
+    <p style="border:1px solid red;" id="print">이 부분에 정답이 출력 될 수 있도록 하세요</p>
+<div id="result1"> </div>
+<button onclick="goReverse();"> 처리 </button>
+<br><br>
+<hr><hr>
+<br><br>
+문제3. 다음 문자열을 입력 받은 후 출력 버튼 클릭시 모든 입력한 문자열이 출력되도록 만들어라.
+<fieldset>
+    <legend>입력</legend>
+    <input type="text" id="strInput"> <button onclick="input()">입력</button>
+</fieldset><br>
+    <p style="border:1px solid red;" id="print2">이 부분에 정답이 출력 될 수 있도록 하세요</p>
+<div id="result1"> </div>
+<button onclick="showItems();"> 출력 </button>
+
+<script>
+//1번문제
+// 1. label 태그에서 입력된 값을 가져와서 변수에 넣음
+// 2. 입력된 값을 ,를 기준으로 찢어서 배열로 만듬
+// 3. 4개의 배열이 나올 것이고 4개의 배열을 합침
+// 4. 입력받은 문자열을 가져와서 변수에 넣음
+// 5. 다 합친 배열에서 입력받은 문자열이 몇번째인지 찾음
+// 6. 존재하면 alert창으로 몇번째인지 출력, 없으면 없다고 출력.    
+    function findItems() {
+        //alert("findItems!");
+//   1.        
+        var la1Val = document.querySelector("#la1").innerHTML;
+        var la2Val = document.querySelector("#la2").innerHTML;
+        var la3Val = document.querySelector("#la3").innerHTML;
+        var la4Val = document.querySelector("#la4").innerHTML;
+//   2.
+        var la1Arrs = la1Val.split(",");
+        var la2Arrs = la2Val.split(",");
+        var la3Arrs = la3Val.split(",");
+        var la4Arrs = la4Val.split(",");
+//   3.
+        var resultArrs = la1Arrs.concat(la2Arrs, la3Arrs, la4Arrs);
+//   4.
+        var inputTag = document.querySelector("#text1");
+        var inputVal = inputTag.value;
+//   5.        
+        var index = resultArrs.indexOf(inputVal);
+        console.log(index);    
+//   6. 
+        if(index != -1) {
+            alert(index+1 + "번째에 있습니다.");
+        }else {
+            alert("존재하지 않습니다.");
+        }
+//   ★ 입력한 값이 input에서 사라지게 하기
+        inputTag.value = "";  
+
+
+        //console.log(la1Val.split(","));
+
+        
+    }
+// input + .value    
+
+//2번문제
+// 1. 눈에 보이는 사이값 배열로 만들기
+// 2. 배열의 reverse하기
+// 3. 배열끼리 합치기(concat)
+// 4. 배열에서 문자열로 만들기(join)
+// 5. p태그에 출력하기(사이값에 넣기)
+    function goReverse() {
+        var la1Val = document.querySelector("#stringla1").innerHTML;
+        var la2Val = document.querySelector("#stringla2").innerHTML;
+        var la1Arrs= la1Val.split(" ");
+        var la2Arrs= la2Val.split(" ");
+        la1Arrs = la1Arrs.reverse();
+        la2Arrs = la2Arrs.reverse();        
+        la1Arrs = la1Arrs.concat(la2Arrs);
+        var pTag = document.querySelector("#print");
+        pTag.innerHTML = la1Arrs.join("");        
+    }
+
+//3번문제
+
+// input에 입력한 값을 배열에 누적하려면 어떻게 해야할까?
+// 누적이 된 후에 input에 입력된 값은 어떻게 지울까?
+    var inputArrs = new Array();
+    function input() {
+        var inputTag = document.querySelector("#strInput");
+        inputArrs.push(inputTag.value);
+        inputTag.value = "";       // input 출력후 입력된 입력내용 삭제
+        console.log(inputArrs);
+    }
+    function showItems() {
+        var p2Tag = document.querySelector("#print2");
+        p2Tag.innerHTML = inputArrs.toString();
+
+    }
+
+// 1. 입력을 누를 때마다 입력한 값이 누적이 되어야 함
+// 2. 배열 선언해서 누적을 함(push)
+// 3. 입력을 누를 때마다 배열이 초기화되어서 누적이 안됨
+// 4. 배열을 전역변수로 이동시키니 누적 되는 것 확인
+// 5. p 태그에 출력
+
+</script>
+
+</body>
+</html>

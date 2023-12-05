@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자스 객체 실습</title>
+    <style>
+        table {
+            border: 1px solid #222;
+            border-collapse: collapse;
+        }   
+        th, td {
+            border: 1px solid #ccc;
+            height: 50px;
+            width: 100px;
+        }
+        #print {
+            height: 100px;            
+        }
+        #div2 {
+            width: 500px;
+            height: 300px;            
+            border: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+    <h1>객체 실습 문제</h1>
+    문제1. <br>
+    다음 입력 버튼을 클릭하면 이름, 나이, 주소를 prompt로 입력받은 후
+    입력받은 정보를 <br> member라는 객체에 저장하여라. <br>
+    이후 출력 버튼을 클릭하면 member객체 안에 있는 정보를 <br>
+    출력 창에 출력되도록 만들자 <br>
+    (입력을 받지 않은 상태에서 출력 버튼클릭시 입력을 먼저 해달라는 
+    알림을 띄우도록 하여라) <br>
+    ex : <br>
+    이름 : 000 <br>
+    나이 : 00세 <br>
+    주소 : xxx xxx xxxx ... <br>
+
+<fieldset>
+    <legend>출력창</legend>
+    <div id="print"></div>
+</fieldset>
+<br>
+<button id="insertMember">입력</button>
+<button id="printMember">출력</button>
+<br><br><br>
+
+    문제2. <br>
+    다음 입력 버튼 클릭시 학생정보를 3명 저장받아서 <br>
+    테이블을 생성하고 출력하는 코드를 작성하여라.
+    단, 학생정보는 객체로 처리하며 저장 후 테이블에 입력하고 <br>
+    모든 학생 정보는 객체 배열에 저장하여 console.log로 출력시 <br>
+    객체배열정보가 console에 나오도록 한다.
+
+<div id="div2">
+    <table>
+        <!-- th = 행 , td = 열 -->
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td name="name"></td>
+            <td name="age"></td>
+            <td name="addr"></td>
+        </tr>
+        <tr>
+            <td name="name"></td>
+            <td name="age"></td>
+            <td name="addr"></td>
+        </tr>
+        <tr>
+            <td name="name"></td>
+            <td name="age"></td>
+            <td name="addr"></td>
+        </tr>
+    </table>
+</div>
+<label for="" style="color: red;">학생정보 테이블</label>
+<button onclick="startInform">입력 및 출력</button>
+    <script>        
+        var member; // 중괄호를 벗어나서 선언한 변수 = "전역변수"
+                    // 전역변수 = 어떤 곳에서도 사용 가능
+        document.querySelector("#insertMember").addEventListener("click", function() {                     
+            var name = prompt("이름을 입력해주세요");
+            var age = prompt("나이를 입력해주세요");
+            var address = prompt("주소를 입력해주세요");
+                     //"지역변수 = (해당 중괄호 안에서만 사용되고 사라짐)"
+                     // 함수 호출이 끝나면 함께 소멸
+             member = {
+                "name" : name,
+                "age" : age,
+                "address" : address
+            }
+        });
+        document.querySelector("#printMember").onclick = function() {
+            var divTag = document.querySelector("#print");
+            divTag.innerHTML += "이름 : " + member.name + "<br>";
+            divTag.innerHTML += "나이 : " + member.age + "<br>";
+            divTag.innerHTML += "주소 : " + member.address + "<br>";            
+        }
+
+
+        function startInform(){
+            var arr = [];
+            for(var i = 0; i < 3 ; i++){
+                var student = {};
+                var name = prompt(i + 1 + "번째 학생의 이름을 입력하세요.");
+                var age = prompt(i + 1 + "번째 학생의 나이를 입력하세요.");
+                var address = prompt(i + 1 + "번째 학생의 주소를 입력하세요.");
+                student.name = name;
+                student.age = age;
+                student.address = address;
+                arr.push(student);
+            }
+            var nameTag = document.querySelectorAll("[name=name]");
+            var ageTag = document.querySelectorAll("[name=age]");
+            var addrTag = document.querySelectorAll("[name=addr]");
+            for(i = 0 ; i < 3 ; i++){
+                nameTag[i].innerHTML = arr[i].name;
+                ageTag[i].innerHTML = arr[i].age;
+                addrTag[i].innerHTML = arr[i].address;
+            }
+        }
+    </script>
+</body>
+</html>

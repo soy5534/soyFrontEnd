@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = https://code.jquery.com/jquery-3.7.1.min.js></script>
+</head>
+<body>
+    <h1>객체조작2</h1>
+    <h3>문서 객체에 문서 객체를 추가하는 메소드</h3>
+    <h4>삽입 메소드 part1</h4>
+    A : 기존태그, B : 추가할태그 <br>
+    <p>
+        $(A).append(B) : B를 A의 내부문자 뒷부분에 추가 (자식으로) <br>
+        $(A).after(B) : B를 A의 뒤에 추가 (형제,자매로)<br>
+
+        $(A).prepend(B) : B를 A의 내부문자 앞부분에 추가 (자식으로)<br>
+        $(A).before(B) : B를 A의 앞에 추가 <br>
+
+    </p>
+    <div id="div1">
+        <p id="p01">test1</p>
+        <p id="p02">test2</p>
+        <p id="p03">test3</p>
+        <p id="p04">test4</p>        
+    </div>
+    <button id="append">append</button>
+    <button id="after">after</button>
+    <button id="prepend">prepend</button>
+    <button id="before">before</button>
+<br><br><br><br>
+    <h4>삽입 메소드 part2</h4>
+    <p>
+        A : 추가할태그, B : 기존태그 <br>
+        $(A).appendTo(B) : A를 B의 내부문자 뒷부분에 추가(자식으로) <br>
+        $(A).insertAfter(B) : A를 B의 뒤에 추가 <br>
+        $(A).prependTo(B) : A를 B의 앞부분에 추가 <br>
+        $(A).insertBefore(B) : A를 B의 앞에 추가 <br>
+    </p>
+    <!-- p#p$*4{test} -->
+    <p id="p05">test5</p>
+    <p id="p06">test6</p>
+    <p id="p07">test7</p>
+    <p id="p08">test8</p> 
+
+    <button id="appendTo">appendTo</button>
+    <button id="insertAfter">insertAfter</button>
+    <button id="prependTo">prependTo</button>
+    <button id="insertBefore">insertBefore</button>
+
+<br><br><br><br>
+    <h3>문서 객체의 제거</h3>
+    <h4>remove() 메소드</h4>
+    <p>특정 문서 객체를 제거함</p>
+    <h4>empty() 메소드</h4>
+    <p>특정 문서의 후손을 제거함</p>    
+
+    <div id="div2">
+        <h1 id="h1">test1</h1>
+        <h1 id="h2">test2</h1>
+        <h1 id="h3">test3</h1>
+    </div>
+
+    <button id="remove">제거하기</button>
+    <button id="empty">후손 제거하기</button>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+    <script>
+        // remove(), empty() 메소드
+        $("#remove").on("click", function() {
+            $("#h1").remove();
+        });
+        
+
+
+
+        $("#append").on("click", function() {
+            $("#p01").append("<span>append추가</span>");
+        });
+        $("#after").on("click", function() {
+            $("#p02").after("<span>after추가</span>");
+        });
+        $("#prepend").on("click", function() {
+            $("#p03").prepend("<span>prepend추가</span>");
+        });
+        $("#before").on("click", function(){
+            $("#p04").before("<span>before추가</span>");
+        });
+
+        //삽입 part2
+
+        $("#appendTo").on("click", function() {
+            $("<span>appendTo추가</span>").appendTo("#p05");
+        });
+        $("#insertAfter").on("click", function(){
+            $("<span>insertAfter추가</span>").insertAfter("#p06");
+        });
+        $("#prependTo").on("click", function() {
+            $("<span>prependTo</span>").prependTo("#p07");
+        });
+        $("#insertBefore").on("click", function() {
+            $("<span>insertBefore</span>").insertBefore("#p08");
+        });
+
+    </script>
+</body>
+</html>

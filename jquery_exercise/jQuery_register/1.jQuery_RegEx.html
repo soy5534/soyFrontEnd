@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식 실습</title>
+    <script src = https://code.jquery.com/jquery-3.7.1.min.js></script>
+    <style>
+        div{
+            border: 2px solid red;
+            height: 200px;
+            width: 400px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <!-- button#btn-filter{영어 필터링} -->
+    <button id="btn-filter">영어 필터링</button> 
+    <div id="printOut"></div>    
+    
+    <script>
+        $(function() {
+            $("#btn-filter").on("click", function() {
+                //영어만 필터링해서 제거하기
+                // Hello!!! 저는 jane입니다. 저의 번호는 010-1234-5678입니다.
+                var target = $("#textIn").val();
+                var regExp = /[a-z0-9-!]/gi;
+                var result = target.replace(regExp, "");
+                $("#printOut").html(result);
+
+            });
+
+        });
+    </script>
+</body>
+</html>

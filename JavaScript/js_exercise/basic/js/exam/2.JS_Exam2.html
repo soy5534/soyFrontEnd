@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="UTF-8">
+  </head>
+<body>     
+    <select id="sel" onchange="changeImage()">
+       <option value="lemon">레몬</option>
+       <option value="lime.png">라임</option>
+       <option value="sberry.png">딸기</option> 
+       
+   </select>
+
+   <script>
+    function changeImage(){
+     var sel = document.getElementById("sel");
+     var img = document.getElementById("myImg");                 
+     switch(selValue) {
+      case "lemon": myImg.src=""
+      case "lime":  ;break;
+      case "sberry":  ;break;
+     }
+    }
+</script>
+    
+    <img src="" id="myImg">
+</body>
+</html>

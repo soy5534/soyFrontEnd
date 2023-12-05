@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제6</title>
+    <style>
+        #container{
+            width: 530px;          /* width : 너비 지정 */
+            border: 1px solid black;     /* border = 경계선 */
+            padding: 20px 40px;      /* padding ?px ?px : 좌우상하 적당한 여백주기? */
+            margin: 0 auto;          /* margin : 가운데 정렬 */
+        }        
+        ul li{
+            list-style-type: none;
+            margin: 10px 0px;
+        }
+        ul label{
+            width:80px;
+            float: left;
+        }
+    </style>
+</head>
+<body>    
+    <div id="container">
+        <h1>프론트엔드 개발자 지원서</h1>
+        <p>HTML, CSS5, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p>
+        <hr>
+        <form>
+            <h4>개인정보</h4>
+            <ul>
+                <li>
+                    <label for="">이름</label> <input type="text" placeholder="공백없이 입력하세요"></input>
+                    <br>
+                    <label for="">연락처</label> <input type="phone">
+                </li>
+            </ul>
+            <h4>지원 분야</h4>
+            <ul>
+                <li><input type="radio" name="field">웹 퍼블리싱</li>
+                <li><input type="radio" name="field">웹 어플리케이션 개발</li>
+                <li><input type="radio" name="field">개발환경 개선</li>
+            </ul>
+            <h4>지원 동기</h4>
+            <textarea name="" id="" cols="60" rows="5"
+            placeholder="본사 지원 동기를 간략히 써주세요."></textarea><br>
+            <input type="submit" value="접수하기">
+            <input type="reset" value="다시쓰기">
+        </form>
+    </div>
+</body>
+</html>

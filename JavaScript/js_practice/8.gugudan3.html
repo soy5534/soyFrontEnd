@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단3</title>
+    <style>
+        table {
+            float: left;
+            margin : 20px;
+        }
+        table,th {
+            border : 1px solie #ccc;
+            border-collapse: collapse;
+        }
+        td {
+            border : 1px dotted #222;
+        }
+        th,td {
+/*                      4개면 상부터 반시걔 2개면 상하 , 좌우 */
+            padding : 10px 15px;    
+        }
+        th{
+            background-color: #eee;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <script>
+//1. 구구단 출력
+//2. div로 감쌌 안에 넣은 것처럼 table, tr, th, td를 이용해서
+//    결과값을 감싸준다.
+        document.write("<h1>구구단</h1>");
+        for(var k = 2; k < 10; k ++) {
+            document.write("<table>");
+            document.write("<tr>");
+            document.write("<th>");
+            document.write("<h3>" + k + "단</h3>");
+            document.write("</th>");
+            document.write("</tr>");
+            for(var i = 1; i < 10; i ++) {
+                document.write("<tr>");
+                document.write("<td>");
+                document.write(k + " X " + i + " = " + k*i + "<br>");
+                document.write("</td>");
+                document.write("</tr>");
+            };
+            document.write("</table>");
+        };
+        
+    </script>
+</body>
+</html>
+</body>
+</html>

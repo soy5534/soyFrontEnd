@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src = https://code.jquery.com/jquery-3.7.1.min.js></script>
+
+  <style>
+    div {
+      border: 2px solid #222;
+      width: 100px;
+      height: 100px;
+      margin: 5px;
+      float: left;      
+    }
+    fieldset {
+      width: 800px;
+      margin: 30px;
+    }
+    
+  </style>
+</head>
+<body>
+  문제 <br>
+  다음 2개의 색깔 중 선택한 색깔이 복사될 수 있도록 구현하여라 <br>
+  <fieldset>
+    <legend>2개의 색깔 중 선택하시오</legend>
+    <div id="img1" style="background-color: pink"></div>
+    <div id="img2" style="background-color: ivory"></div>
+  </fieldset>
+  <fieldset>
+    <legend>복사되는 공간</legend>
+    <div id="1th"></div>
+    <div id="2th"></div>
+    <div id="3th"></div>
+    <div id="4th"></div>
+    <div id="5th"></div>
+    <div id="6th"></div>
+    <div id="7th"></div>
+  </fieldset>
+
+  <script>
+    $(function() {
+      var color = ""; // var color = 변수에 저장
+    
+    $("div[id^=img]").on("click", function() {
+      color = $(this).css("background-color")  // this -> click한 부분의 오브젝트
+    });
+    
+    $("div[id$=th]").on("click", function() {
+      $(this).css("background-color",color);
+    
+    });
+    
+    
+    // $("#img1").on("click", function() {
+      //   color = $(this).css("background-color")  // 추출      
+      
+      // for(var i = 1; i < 0; i++) {
+        //   $("#"+i+"th").on("click",function(){
+      //     $(this).css("background-color", color);
+      //   });
+      // }
+      // $("#1th").on("click", function() {
+        //   $(this).css("background-color", color);
+        // })
+        
+      });
+  </script>
+</body>
+</html>

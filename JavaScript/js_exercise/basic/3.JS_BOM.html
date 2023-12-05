@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>윈도우 객체</h1>
+    <o>window 객체는 자바스크립트의 최상위 객체이며 BOM, DOM으로 나뉜다.</o> 
+    <!-- BOM = Browser Object Model   , DOM = Document Object Model -->
+    <h3>Window 객체</h3> 
+    <p>브라우저 창에 대한 설정을 하는 객체</p>
+    <button onclick="callAlert();">alert 확인</button> <br><br>    
+    <button onclick="callConfirm();">confirm 확인</button> <br><br>
+    <button onclick="callPrompt();">prompt 확인</button> <br><br>
+    <button onclick="callOpen();">open 확인</button> <br><br>
+    <button onclick="callClose();">close 확인</button> <br><br>
+    <button onclick="callTimeout();">setTimeOut 확인</button> <br><br>
+    <button onclick="callInterval();">setInterVal 확인</button> <br><br>
+    <button onclick="callClearInterval();">clearInterval 확인</button>
+    <button onclick="startClock();">디지털 시계 On</button> <br><br>
+    <button onclick="stopClock();">디지털 시계 Off</button> <br><br>
+    <div id="clockArea" style="background-color: #ccc;width:300px;height:200px;font-size: 30px;border:1px solid #222; color:#222;">
+    </div>
+        
+        <br><br><br>
+
+        <h3>navigator 객체</h3>
+        <p>웹 페이지를 실행하고 있는 브라우저에 대한 정보를 가지고 있는 객체</p>
+        <button onclick="checkNavigator();">navigator 객체 확인</button>
+        <h3>screen 객체</h3>
+        <p>웹 브라우저 화면이 아닌 운영체제 화면의 속성을 가진 객체</p>
+        <button onclick="checkScreen();">scrren객체 확인</button>
+        <h3>★location 객체</h3>
+        <p>브라우저 주소 표시줄과 관련된 객체(페이지 이동)</p>
+        <h3>history 객체</h3>
+        <p>현재 창에서 사용자의 방문 기록을 저장함. 뒤로가기, 앞으로가기, 새로고침 가능</p>
+
+        <button onclick="javascript.location.reload()";>location 확인</button> <br>
+        <button onclick="checkHref()";>href 페이지 이동</button> <br>
+        <button onclick="checkAssign()";>assign 페이지 이동</button> <br>
+        <button onclick="checkReplace()";>replace페이지 이동</button> <br>
+        <button onclick="javascript:console.log(history)";>history 객체 확인</button>
+        <button onclick="goBack();">뒤로가기 확인</button>
+
+
+
+    <script>
+        function callAlert() {
+            alert("callAlert");
+        }
+        function callConfirm() {
+            var check = confirm("확인하시겠습니까?");
+            console.log(check);
+        }
+        function callPrompt(){
+            var data = prompt("데이터를 입력해주세요.");
+            console.log(data);
+        }
+        function callOpen() {
+            myWindow = window.open("./1.JS_Basic.html","pop","width=500, height=400");    // 팝업창 만들기 ("pop" 입력 안 해주면 옆페이지로 추가)
+        }
+        //function callClose(){
+        //}
+        var myWindow = null;
+        var callClose = function(){
+            myWindow.close();
+        }
+        function callTimeout(){
+            window.setTimeout(function() {
+                myWindow.close();
+            },3000);    //3초있다 닫힘.     // 실행코드를 지연하는 명령어 setTimeout
+        }
+        var mywindow = null;
+        var eInterval = null;
+        function callClearInterval(){
+            window.clearInterval(eInterval);
+        }
+        function callInterval() {
+            window.setInterval(function() {
+                console.log("1");
+            }, 1000);
+            }
+
+        function startClock() {            
+            var divTag = document.querySelector("#clockArea")
+            window.setInterval(function() {            
+            var timeData = new Date();
+            divTag.innerHTML = timeData.getHours() + " : " + timeData.getMinutes() + " : " + timeData.getSeconds();            
+        }, 1000);
+    }
+        var clockObj = null;
+        function stopClock(){
+            window.clearInterval(clockObj);
+        }
+        function checkNavigator() {
+            //alert("checkNavigator..")
+            console.log(navigator.userAgent);
+        }
+
+        function checkScreen() {
+            // 페이지 이동
+            console.log(screen);
+        }
+        function checkHref(){
+            location.href = "http://www.iei.or.kr";
+        }
+        function checkAssign() {
+                  // 페이지 이동(★파라미터 이동) (대중적으로 쓰임)
+            location.assign("http://www.iei.or.kr")
+        }
+        function checkReplace() {
+            // 페이지 이동(전달값 이용)
+            // 뒤로가기 불가능한 페이지 이용
+            location.replace("http://www.iei.or.kr");
+        }
+        function goBack() {
+            // go() : 새로고침, go(-1) : 뒤로가기, go(1) : 앞으로 가기
+            //history.go(-1);
+            location.href = "./5.JS_Function.html";
+        }
+        
+
+        // BOM = 585p
+    </script>
+</body>
+</html>

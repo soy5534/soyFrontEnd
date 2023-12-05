@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1 id="h1-tag">DOM(Document Object Model)</h1>
+    <p>
+        문서객체 : HTML에 있는 태그를 객체화하여 자바스크립트에서 다룰 수 있게 한 것,
+                  모든 노드 객체에접근할 수 있는 요소와 메소드를 제공함
+    </p>
+    <h2>자바스크립트를 이용한 HTML태그 접근</h2>
+    <p>
+        자바스크립트를 이용하여 HTML태그를 동적으로 처리하기 위해서는 DOM객체의 메소드를
+         호출하여 접근해야 함.
+    </p>
+    <h3>메소드(명령어)</h3>
+    <p>
+        1. getElementById("아이디값") <br>
+        2. getElementsByName("이름값") <br>
+        3. getElementsByTagName("태그명") <br>
+        4. querySelector("#선택자") <br>
+        5. querySelectorAll("#선택자")
+    </p>
+    <p id="p11" name="pp">안녕하세요</p>
+    <p id="p22" name="pp">돔객체</p>
+    <p id="p33" name="pp">자바스크립트</p>
+    <script>
+          // 선택자가 여러개를 선택했으면 여러개가 출력되기 위해서
+          // querySelector에 All을 붙여줘야함.
+          // ★ querySelector("#name");
+          // All을 안붙이면 오류나는 것이 아니라 1개만 나오게됨
+        var pTags2 = document.querySelectorAll("[name=pp]");   // = document.getElementsByName("pp");
+        console.log(pTags2);
+        var pTag1 = document.querySelector("#p11");   // = document.getElementById("p11");
+        
+                      // <p id="p11" name="pp"> 안녕하세요</p>       
+        var pTag2 = document.querySelector("#p22");   // = document.getElementById("p22");
+        
+
+        var pTag3 = document.querySelector("#p33");
+        
+
+        // document.getElementById("p11")    // 얘는 p#p11
+        // .innerHTML = "올라~";    // .innerHTML 
+        // document.getElementById("p22")
+        // .innerHTML = "DOM Object";
+        // document.getElementById("p33")         // getElementById -> id를 이용하여 1개씩 선택함
+        // .innerHTML = "Javascript";
+        //다 있는 document에서 id를이용하여 하나씩 선택
+        
+
+        // document.getElementsByName("pp")[0]  // p#p11
+        // .innerHTML = "Hello";
+        // document.getElementsByName("pp")[1]
+        // .innerHTML = "Dom Object";
+        // document.getElementsByName("pp")[2]
+        // .innerHTML = "Javascript";
+        
+    </script>
+</body>
+</html>

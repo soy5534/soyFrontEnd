@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트</title>
+  <script src = https://code.jquery.com/jquery-3.7.1.min.js></script>
+
+  <style>
+    div:not(#textCount) {
+      width: 100px;
+      height: 100px;
+      border: 3px solid black;            
+    }
+    /* div:hover{
+      background-color: gold;
+    }   */
+    </style>
+</head>
+<body>
+  <p>
+    사용자가 마우스를클릭하거나 마우스를 움직여 특정화면 위로 가져가거나
+    키보드를 누르는 행위를 하게 되는데 이것을 이벤트라고 부름. <br>
+    jQuery에서는 event객체를 통해서 이벤트를 제어함. 
+    <h3>마우스오버 이벤트</h3>
+  </p>
+    <div id="div-hover"></div>  
+
+    <h3>클릭 / 더블클릭</h3>
+  <p id="click">just click</p>
+  <p id="dblclick">double click</p>
+
+  <h3>마우스 업/다운 이벤트</h3>
+  <div id="div-updown"></div>
+
+  <h3>마우스 무브 이벤트</h3>
+  <h1>
+    Mouse is a coordinate : <span id="span1"></span>
+  </h1>
+  <br><br><br><br><br>
+  <h3>키업/키프레스/키다운 이벤트</h3>
+  <br>
+  <div>
+    <p>글 작성</p>
+    <h1 id="noti">작성가능한 글자수 : 150</h1>
+    <textarea name="resume" id="resume" cols="50" rows="5"></textarea>
+  </div>
+
+  <h1>입력 양식(form) 이벤트</h1>
+  <h3>submit / focus / blur 이벤트</h3>
+  <form action="#" id="my-form">
+    ID : <input type="text" name="userId" id="userId"> <br>
+    PW : <input type="text" NAME="userPw" id="userPw"> <br>
+    <input type="submit" value="제출">
+    <input type="reset" value="취소">
+  </form>
+
+<h3>change 이벤트</h3>
+<p>
+  input태그의 type 속성이 checkbox, radio인 input태그와
+  select태그의 상태 변경을 감지하는 이벤트
+</p>
+전체 <input type="checkbox" name="allCheck" id="allCheck">
+<div id="check-item2">
+<input type="checkbox" name="" id=""> A
+<input type="checkbox" name="" id=""> B
+<input type="checkbox" name="" id=""> C
+</div>
+
+<h3>이벤트 버블링 막기 및 기본 이벤트 제거</h3>
+<p>
+  stopPropagation() : 이벤트 전달 제거 <br>
+  preventDefault() : 기본 이벤트 제거
+</p>
+<h1 id="h1-click">
+  <span id="span-click">click</span>
+</h1>
+<h1>
+  <a href="http://www.iei.or.kr" target="_blank">
+    KH정보교육원
+  </a>
+</h1>
+
+
+  <br><br><br><br><br><br><br><br><br>
+</body>
+<script>
+  $("#h1-click").on("click",function() {
+    alert("h1 click");
+  });
+
+
+  $("#span-click").on("click", function() {
+    e.stopPropagation(); // span을 클릭했지만 해당 이벤트가 부모로 전달되는 현상 막아줌
+    alert("span-click");
+  });
+
+  $("a").on("click", function(e) {
+    e.preventDefault(); // a태그 페이지 이동 이벤트 제거해줌
+    alert("기본 이벤트 제거");
+  });
+
+
+
+// change 이벤트
+  $("#allCheck").on("change", function(){
+    if($(this).is(":checked")) {
+      // $("#check-item2").children().attr("checked", "checked");
+      $("#check-item2").children().attr("checked", true);
+    }else{
+      $("#check-item2").children().removeAttr("checked");
+    }
+  });
+
+
+
+//커서 감지=focus , 사라짐감지=blur
+  $("#userId").on("focus", function() {
+    $(this).css("background-color" , "skyblue");
+  });
+// 제출 감지
+$("#userId").on("blur", function() {
+    $(this).css("background-color" , "white");
+  });
+
+  $("#userPw").on("focus", function() {
+    $(this).css("background-color" , "tomato");
+  });
+  $("#userPw").on("blur", function() {
+    $(this).css("background-color" , "white");
+  });
+
+
+  $("#my-form").on("submit", function() {
+    return false;  
+
+    if($("#userId").val() == "") {
+    alert("ID를 입력해주세요.");
+    return false;
+   }
+   if($("#userPw").val() == "") {
+    alert("PW를 입력해주세요.");
+    return false;
+   }
+  }
+  );
+
+
+
+  // document.querySelector("#div-hover")
+  // .addEventListener("mouseover", function() {
+  //   this.style.backgroundColor = "red";
+  // })
+  $("#div-hover")
+  .on("mouseover" , function() {
+    $(this).css("background-color" , "red");
+  });
+
+  $("click").on("click", function() {
+    alert("dblclick");
+  });
+
+  $("#dblclick").on("dblclick", function() {
+    alert("double click");
+  });
+
+  $("#div-updown").on("mouseup" , function() {
+    $(this).css("background-color", "blue");
+  });
+
+  $("#div-updown").on("mousedown", function() {
+    $(this).css("background-color", "black");
+  });
+
+  $("#div-updown").on("mousemove", function(event) {
+    $("#span1").html("<br> x : " + event.pageX + ", y : " + event.pageY);
+  });
+
+  $("#resume").on("keyup", function() {
+    // keydown = 입력하기 전에는 값이 없으므로 0으로 시작
+    // keyup = 입력이 되고 카운트하므로 1로 시작
+    console.log($(this).val().length);
+    $("#noti").html("작성가능한 글자수 : " + (150 - $(this).val().length));
+  });
+
+</script>
+</html>

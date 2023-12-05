@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 문자열 메소드 문제</h1>
+    문제1. 다음 보기에 있는 텍스트 필드에 작성한 문자열의 길이를 알아올 수 있도록 구현하시오
+    <fieldset>
+        <legend>보기</legend>
+        <input type="text" placeholder="글자를 작성해보세요" size=100 id="text1">
+    </fieldset><br>
+    <div id="result1"> </div>
+    <button onclick="stringLength();"> 확인하기</button>
+    <br><br>
+    <hr><hr>
+    <br><br>
+
+    문제2. 다음 보기에 있는 문자열을 ,(콤마) 를 기준으로 잘라내어 하나하나 출력하시오
+    (동작 결과는 정답을 확인하셔도 됩니다.)
+    <fieldset>
+        <legend>보기</legend>
+        <label id="la1">콜라,사이다,햄버거,피자,한약</label>
+    </fieldset><br>
+    <div id="result2"> </div>
+    <button onclick="stringSplit();"> 확인하기</button>
+    <br><br>
+    <hr><hr>
+    <br><br>
+
+    문제3. <br>
+    글자를 입력후 입력 버튼을 클릭하면 <br>
+    메시지공간에 출력하고 대문자버튼,소문자버튼을 <br>
+    클릭하면 해당 입력값을 대/소문자로 바꾸어 주어라<br>
+    (입력 버튼을 클릭하면 입력창 값을 가져오고 입력창에 내용은 비워라!)
+    <fieldset>
+        <legend>입력창</legend>
+        <input type="text" id="memo" size="50" />
+    </fieldset><br>
+    <div id="result3"> </div>
+    <button onclick="memoPrint();">입력</button>
+    <button onclick="memoUpper();">대문자로 변경</button>
+    <button onclick="memoLower();">소문자로 변경</button>
+
+    <script>
+        function stringLength() {
+            var textInput = document.querySelector("#text1");
+            var resultDiv = document.querySelector("#result1");
+
+            var textVal = textInput.value;
+            resultDiv.innerHTML = "보기의 문자열의 길이는 "+textVal.length+"입니다.";   // ★ "+ +" 
+            //console.log(textVal.length);                 
+        }
+        
+        function stringSplit() {
+            var la1Tag = document.querySelector("#la1");
+            var divTag = document.querySelector("#result2");
+
+            var laValue = la1Tag.innerHTML;
+            var laSplit = laValue.split(",");
+            console.log(laValue.split(","));
+            for(var i = 0; i < 5; i++){            // for 공식 외우기                
+                
+            divTag.innerHTML = divTag.innerHTML + (laSplit[i] + "<br>");
+
+            // laSplit[0] + "<br>" + laSplit[1] +
+            // "<br>" + laSplit[2]+ "<br>" + laSplit[3] + "<br>" + laSplit[4];
+            }}
+
+            function memoPrint() { //alert("memoPrint!!");      // * document 쓰는걸 DOM 프로그래밍한다 라고 함.
+            var memoInput = document.querySelector("#memo");
+            var divTag = document.querySelector("#result3");
+            divTag.innerHTML = memoInput.value;
+            memoInput.value = "";          // 확인누르면 입력창 비우기.                                 
+            //console.log(memoInput.value);
+            }
+            function memoUpper() {  
+                var divTag = document.querySelector("#result3");
+                var memoInput = document.querySelector("#memo");
+                //console.log(memoInput.value.toUpperCase());
+                divTag.innerHTML = memoInput.value.toUpperCase();  
+                memoInput.value = "";          // 확인누르면 입력창 비우기.                
+                //alert("memoupper");
+                //console.log(divTag.innerHTML.toUpperCase());                
+            }
+        
+            function memoLower() {
+                //alert("memoLower");
+                var divTag = document.querySelector("#result3");
+                var memoInput = document.querySelector("#memo");
+                divTag.innerHTML = memoInput.value.toLowerCase();
+                memoInput.value = "";          // 확인누르면 입력창 비우기.  
+                //divTag.innerHTML = divTag.innerHTML.toLowerCase();
+            }
+        
+
+    </script>
+</body>
+</html>

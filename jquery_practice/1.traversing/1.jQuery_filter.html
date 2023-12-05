@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery filter() 메소드1</title>
+  <script src = https://code.jquery.com/jquery-3.7.1.min.js></script>
+  <script src = "/JavaScript/jquery-3.7.1.min/jquery-3.7.1.min.js"></script>  
+</head>
+<body>
+  <ol>    
+    <li class="first"><h2>1-1</h2></li>
+    <li class="second"><h2>1-2</h2></li>
+    <li class="first"><h2>1-3</h2></li>
+  </ol>
+  <ul>
+    <li class="third"><h2>2-1</h2></li>
+    <li class="second"><h2>2-2</h2></li>
+    <li class="third"><h2>2-3</h2></li>
+  </ul>
+</body>
+<script>
+  // $("ol>li.first-child").css("color", "red");
+
+
+
+
+  // console.log($(".first"));
+  
+  $(".first").first().css("color","red");
+  $(".first").last().css("color","yellow");
+  
+  
+  // $(".first").first().css("color","red");
+  // $(".first").last().css("color","yellow");
+  // $(".second").eq(0).css("color","orange");
+  // $(".second").eq(1).css("color","blue");
+  // $(".third").first(1).css("color","green");
+  // $(".third").eq(1).css("color","navy");
+
+  
+
+        //   var red = $(".first").eq(0);
+        // red.css("color","red")
+        // var orange = $(".second").eq(0);
+        // orange.css("color","orange");
+        // var yellow = $(".first").eq(1);
+        // yellow.css("color","yellow");
+        // var green = $(".third").eq(0);
+        // green.css("color","green");
+        // var blue = $(".second").eq(1);
+        // blue.css("color","blue");
+        // var purple = $(".third").eq(1);
+        // purple.css("color","purple");
+
+</script>
+</html>

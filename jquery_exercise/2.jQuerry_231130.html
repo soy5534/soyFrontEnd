@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>jQuery filter() apthem2</title>
+        <script src = https://code.jquery.com/jquery-3.7.1.min.js></script>
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+            th,td{
+                border: 1px solid black;
+            }
+        </style>
+        <script>
+          function clear() {
+            $("table td").css("color", "black");
+          }
+          
+          window.onload=function(){
+            var tdTags=$("td");
+            //console.log(tdTags);
+            // document.querySelector("#click1")
+            // .addEventListener("click",function(){}
+            $("#click1").on("click",function(){
+            clear();
+            $("tr:eq(1)").children("td").not(":first-child").css("color", "blue");
+            // $("td").eq(1).css("color", "red");
+            // $("td:eq(1)").css("color", "blue");
+            // $("td:eq(2)").css("color", "blue");            
+            // $("td").eq(1).css("color", "blue");
+            // $("td").eq(2).css("color", "blue");
+//            $("td").eq(4).css("color", "black");
+//            $("td").eq(5).css("color", "black");
+            });
+            $("#click2").on("click",function(){
+              clear();
+              $("tr:eq(2)").children("td").not(":first-child").css("color", "blue");
+            // $("table td").css("color", "black");
+            // $("td").eq(4).css("color", "blue");
+            // $("td").eq(5).css("color", "blue");          
+            // $("td").eq(1).css("color", "black");            
+            });
+            }
+            function click3() {
+            // $("table td").css("color", "black");
+            clear();
+            $("td").eq(1).css("color", "blue");
+            $("td").eq(4).css("color", "blue");
+            // $("td").eq(2).css("color", "black");
+            // $("td").eq(5).css("color", "black");
+            }
+            function click4() {
+            clear();
+                alert("click4");
+            }
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>구분</th>
+                <th>A</th>
+                <th>B</th>
+            </tr>
+            <tr>
+                <td>가</td>
+                <td>10</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>나</td>
+                <td>20</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>계</td>
+                <td>30</td>
+                <td>30</td>
+            </tr>
+        </table>
+        <input type="button" value="[가]색 변경 " id=click1>
+        <input type="button" value="[나]색 변경 " id=click2>
+        <input type="button" value="[A]색 변경" onclick="click3();">
+        <input type="button" value="[B]색 변경" onclick="click4();">
+    </body>
+</html>

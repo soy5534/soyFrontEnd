@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src = https://code.jquery.com/jquery-3.7.1.min.js></script>
+  <style>
+    th, td {
+      border : 1px solid black;
+    }
+    fieldset {
+      width : 500px;
+      height: 200px;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    .title { background-color: black; color: white;}
+    .name { background-color: #ffbe0b;}
+    .age { background-color: #fb5607;}
+    .addr { background-color: #ff006e;}
+  </style>
+</head>
+<body>
+  문제. <br>
+  적용 버튼 클릭시 style이 적용될 수 있도록 하여라. <br>
+  취소 버튼 클릭시 style이 취소될 수  있도록 하여라. <br>
+  (css 코드는 변경하지 않도록 함) <br>
+
+  <table>
+    <tr>
+      <th>이름</th>
+      <th>나이</th>
+      <th>주소</th>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>20</td>
+      <td>서울시</td>
+    </tr>
+    <tr>
+      <td>고길동</td>
+      <td>30</td>
+      <td>경기도</td>
+    </tr>
+    <tr>
+      <td>최길동</td>
+      <td>40</td>
+      <td>화성시</td>
+    </tr>
+    <tr>
+      <td>상길동</td>
+      <td>50</td>
+      <td>부천시</td>
+    </tr>
+  </table>
+  <hr>
+  <button id="apply">적용</button>
+  <button id="reset">취소</button>
+
+  <script>
+    $("#apply").on("click", function() {
+      $("th").addClass("title");
+      $("td").each(function(index, item) {
+        if(index % 3 === 0) {             // 이름
+          $(item).addClass("name");       
+        }else if(index % 3 == 1) {       // 나이
+          $(item).addClass("age");
+        }else {                          // 주소
+          $(item).addClass("addr");
+        }
+      })
+    });
+
+        // 이름에 해당하는 index 0 , 3 , 6 , 9가 됨
+      // $("td:eq(0)").addClass("name");
+      // $("td:eq(3)").addClass("name");
+      // $("td:eq(6)").addClass("name");
+      // $("td:eq(9)").addClass("name");
+      // // 나이에 해당하는 index는 1,4,7,10 ...
+
+    $("#reset").on("click", function() {
+      $("th").removeClass("title")
+      $("td:nth-of-type(3n+1)").removeClass("name");
+      // 나이의 td태그 순서는 2, 5, 8, 11이 됨.
+      $("td:nth-of-type(3n+2)").removeClass("age");
+      $("td:nth-of-type(3n)").removeClass("addr");
+    });
+
+
+  </script>
+</body>
+</html>

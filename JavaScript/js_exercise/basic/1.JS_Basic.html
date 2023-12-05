@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기본문법</title>
+</head>
+<body>
+    <h1>자바스크립트 기본문법</h1>
+    <p>
+        자바스크립트 주석 <br>
+        - 한줄 주석 : / <br>
+        - 범위 주석 : /* ~ */ <br>
+        변수 선언 <br>
+        변수 종류 : 멤버변수와 지역변수 <br>
+        변수에 대한 자료형을 선언하지 않음(자료형은 존재) <br>
+    </p>
+    <h3>변수 명령 규칙</h3>
+      
+    <pre>                  
+        1. 영어 대/소문자, 숫자, _(언더스코어), $ 사용가능
+        2. 첫글자 숫자 사용 불가
+        3. 공백을 포함한 특수문자 사용불가
+        4. 이름에 의미있는 단어의 조합 권장
+        5. 예약어 사용불가   (*예약어=ex)var같은 기능어)
+        6. 두 단어 이상 결합시 낙타표기법 권장    (ex. memberId , memberPw 처럼 대문자)
+        7. 한글 사용가능
+        8. 생성자 함수의 이름은 항상 대문자로 시작
+        9. 변수, 인스턴트, 함수, 메소드는 항상 "소문자"로 시작
+    </pre>
+    <h3>숫자(Number)</h3>
+    <p>
+        - 정수형 숫자와 부동소수형 숫자로 구분 <br>
+        - 내장객체로 Math객체 제공, 기본 메소드 존재 <br>
+        - Math.abs():절대값, Math.random() : 난수, Math.round() : 반올림
+           Math.floor() : 버림, Math.ceil() : 올림, ...
+    </p>
+    <h3>문자열(String)</h3>
+    <p>
+        " " 로 묶여있는 리터럴값, 내장객체 String이며 기본적인 메소드가 존재
+        toUpperCase(), toLowerCase(), length, indexOf(), lastIndexOf()
+        substring(), split(), . . .
+    </p>
+    <p>
+        <h3>형 변환</h3>
+        <h5>숫자 -> 문자열</h5>
+        <p>
+            1. 숫자와 문자열을 + 연산하게 되면 문자열이 우선되어 숫자를 문자로 변환 <br>
+            2. 강제 형변환 : String() 생성자 함수 이용
+        </p>
+        <h5>문자열 -> 숫자</h5>
+        <p>
+            숫자, 문자 + 이외에 사칙연산시 숫자가 우선되어 문자를 숫자로 변환 <br>
+            강제 형변환 함수 이용 : Number(), parseInt() 등 ...
+            
+        </p>
+        <h3>제어문</h3>
+        <p>
+            1. 조건문 : if, if ~ else, else if, switch <br>
+            2. 반복문 : for, while, do~while, for in <br>
+            3. 분기문 : continue, break <br>
+
+        </p>
+    </p>
+    <script>
+        // while문
+        // 초기식은 바깥에
+        // while(조건식) {}
+        //         증감식은 중괄호 안에
+        var j = 0;
+        while (j < 10) {
+            console.log("반복문이 "+(j+1)+"번째 실행되었어요!");
+            //if(j > 3) break;          // 브레이크 잡는 break!
+            //continue;                 // 밑에 코드를 스킵하는 콘티뉴!
+            j++;
+
+        }
+
+
+
+        // for문
+        // 초기식; 조건식; 증감식
+        // 반복하는데 필요한 변수 선언 : 초기식
+        // 반복하는 횟수 : 조건식
+        // 반복하도록 증가하는 : 증감식, ★ i++ -> i = i + 1(1씩 증가하겠다.)
+        // for(var i = 0; 조건식; i++)
+
+//        for(var i = 1; i < 11; i++){            
+            //         조건식  증가식
+            // 동작순서 첫번째에는 i = 1 -> 조건식을 따진 후 참(true)이면 중괄호 안에 코드 실행
+            // -> 코드 실행 후 증감식에서 증가 i는 값이 3가 됨.
+            // 그 다음 동작은 i = 2 -> 조건식을 따진 후 참(true)이면 중괄호 안에 코드 실행
+            // -> 코드 실행 후 증감식에서 증가 i는 값이 3이 됨
+            // ..
+            // 그 다음 동작은 i = 10 -> 조건식을 따진 후 참(true)이면 중괄호 안에 코드 실행
+            // -> 코드 실행 후 증감식에서 증가, i는 값이 11이 됨
+            // 그 다음 동작은 I =11 -> 조건식을 따지면 거짓(false)가 되어 반복문 종료
+//            console.log("반복문이 "+i+"번째 실행되고 있어요.")
+        
+
+
+/*
+        // 형 변환
+        //var check = confirm("랜덤한 값을 확인하시겠습니까?");       // 확인 = true , 취소 = false 적용
+        //console.log(check);
+        if(check){
+            for(var i = 0; i < 10; i++){    // 0부터 시작해서 1씩, 10보다 작을때까지 증가.
+    var result = Math.floor(Math.random()*10 + 1);
+    console.log(result);
+} 
+        var check = prompt("값을 입력해주세요.");              // confirm(확인/취소) ,, prompt(사용자가 값 직접 입력)
+     // prompt로 입력받은 값은 문자열이구나!, 숫자랑 비교할 땐 형변환(parseInt, Number) 해줘야 함.
+        switch(parseInt(check)){
+            case 1 : console.log("1을 입력하셨습니다."); break;           // ★ switch ~ case ~ break 
+            case 2 : console.log("2을 입력하셨습니다."); break;
+            case 3 : console.log("3을 입력하셨습니다."); break;
+            default : console.log("s1 ~ s3 사이의 수를 입력해주세요");      // ★default = else의 느낌 
+        }
+
+
+// == 비교는 데이터만 같으면 됨 "1" == 1 -> true(자동변환)
+// === 비교는 타입과 데이터가 모두 같아야 함. "1" === 1 -> false, "7" === 7 -> false
+//      true가 나오게 하려면 parseInt("1") === 1 -> true
+// ★ 최근의 코드는 "===" 을 주로 사용.
+        if(check === 3) {                            
+            console.log("행운의 숫자 : " + 7);            
+        }
+        else if(check == 2 ){
+            console.log("2를 입력하셨습니다.");               // if , else if , else
+        }
+        else if(check == 1 ){
+            console.log("1을 입력하셨습니다.");
+        }
+        else {
+            console.log("1~3을 입력해주세요.");
+        }
+
+        }
+
+/*
+        
+        // 형 변환
+        //console.log("행운의 숫자 : " + 7);
+        var trans1 = 7 + 7;
+        var trans2 = 7 + parseInt("7");         
+        var trans3 = "7" + 7 ;
+        var trans4 = 7 + 7 + "7";
+        var trans5 = "7" + 7 + 7;
+        var trans6 = "7" + (7 + 7);               
+    
+  
+        console.log("7 + 7 = " + trans1); // 14
+        console.log("7 + '7' = " + trans2); // 77  ,  ""안에서 문자열을 나타낼 땐 ''(홑따옴표) 넣어주기 
+        console.log(trans3); // 77
+        console.log(trans4); // 147
+        console.log(trans5); // 777
+        console.log(trans6); // 714
+
+        // 문자열 => 숫자
+        var dataStr1 = "2022년도";
+        var dataStr2 = "제2022년도";
+        // dataStr1 = parseInt(dataStr1);  // 2022 : 바꿔줌
+        dataStr1 = Number(dataStr1); // [NaN : Not a Nubmber]
+        console.log(dataStr1);
+        dataStr2 = parseInt(dataStr2);
+        console.log(dataStr2);
+        
+
+/*
+        var moonja = "Hello, Javascript, World";
+        var upperMoonja = moonja.toUpperCase();         // toUpperCase = 대문자화 
+        var lowerMoonja = upperMoonja.toLowerCase();    // toLowerCase = 소문자화 
+        var lengthMoonja = moonja.length;               // 소괄호() 안붙는 특징 
+        var indexMoonja = moonja.indexOf("l");          // "l"의 위치를 구해줘! index는 0부터 시작함
+                                                        // ex) 3번째의 인덱스는 2, 23번째 인덱스는 22
+        var subMoonja = moonja.substring(7, 17);
+        var splitMoonja = moonja.split(",");
+        // moonja = new String(Hello, Javascript, World);
+
+        console.log("문자열 : " + moonja);        
+        console.log("대문자화 : " + upperMoonja);        
+        console.log("소문자화 : " + lowerMoonja);
+        console.log("문자열 길이 도출 : " + lengthMoonja);   // 많이 쓰인다고 함 
+        console.log("문자 위치 : " + indexMoonja);
+        console.log("문자열 자르기 : " + subMoonja);
+        console.log("문자열 찢기 : " + splitMoonja[0]);    // 인간어는 1, 컴언어는 항상 "0"부터 시작임
+
+        var pNum = 30;
+        //pNum = new Number(30);
+        var absVal = Math.abs(-4);
+        var randVal = Math.random()*10+1;
+        var roundVal = Math.round(3.6);
+        var floorVal = Math.floor(randVal);
+        var ceilVal = Math.ceil(3.1);
+        //console.log(absVal);
+        console.log("절대값 : " + absVal);
+        console.log("랜덤값 : " + randVal);
+        console.log("반올림값 : " + roundVal);
+        console.log("버림값 : " + floorVal);
+        console.log("올림값 : " + ceilVal);
+
+
+
+
+ /*
+        console.log(1+1);              /* console.log = F12 스크립트창에 표시 */
+        //console.log('Hello, Javascript');    /* "//" 해당 줄 주석처리 */
+//        var value = 2;
+//        var num;                            /* 변수 = 다양한 값을 입력/저장 가능한 공간 */
+/*        var number;
+        var sootjja;
+        num = 425;
+        number = 1113;
+        sootjja = 4.5;
+        num = "Hello, Javascrpit";
+        // 정수, 실수, 문자열, 참/거짓
+        number = true;
+        sootjja = false;   
+
+        //colsole.log(num);
+        //console.log(number);
+        //console.log(sootjja);
+        
+        // 0 == 0      /* == 0이랑 0이 같은가? */
+        //var result = (0 == 0);
+        //console.log(result);     
+        
+        // var temp = 1+1;   
+        // temp = 10;
+        // temp = 4.5;       
+        // console.log(temp);        
+
+    </script>
+</body>
+</html>

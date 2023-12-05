@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>상품을 선택해 주세요.</legend>
+        <p><b>주문할 상품을 선택해 주세요.</b></p>        
+        <input type="checkbox" name="all" id="all" value="전체선택">전체선택 
+        <p>
+        <label><input type="checkbox" name="product" value="s_3">선물용 3kg</label>
+        <label><input type="checkbox" name="product" value="s_5">선물용 5kg</label>
+        <label><input type="checkbox" name="product" value="f_3">가정용 3kg</label>
+        <label><input type="checkbox" name="product" value="f_5">가정용 5kg</label>
+    </p>
+        <p><b>포장 선택</b></p>
+        <label><input type="radio" name="gift" value="yes">선물 포장</label>            
+        <label><input type="radio" name="gift" value="no">선물 포장 안함</label>            
+    </fieldset>
+
+    <script>
+        window.onload = function() {
+        var all = document.getElementById("all");
+        all.addEventListener('click', function() {
+            checks = document.getElementsByName("product");
+            var selected = false;
+
+            if(all.checked) {
+              selected = true;
+            }
+            
+            for ( var i = 0; i < checks.length; i++) {
+                checks[i].checked = selected;
+            }
+        });
+    }
+    </script>
+</body>
+</html>

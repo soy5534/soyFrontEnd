@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS표시영역 변경하기</title>
+    <style>
+        /* fieldset도 style 적용가능 */
+        fieldset {
+            width: 400px;
+            text-align: center;
+            background-color: #dbdbdb;
+        }
+        div.box {
+            background-color: gold;
+            width: 450px;
+            height: 50px;
+            padding: 10px;
+            margin: 5px;
+            display: none;    
+            /* 안보이게 => display: none; */
+        }
+    </style>
+</head>
+<body>
+    <h1>JS 표시영역 변경하기</h1>
+     <!-- fieldset + legend -->
+    <fieldset>
+        <legend>검색할 항목을 선택하세요.</legend>
+        <!-- input:radio*3 -->
+        <!-- name값을 통일해줘야 3개중 택1 가능 -->
+        <input type="radio" name="category" id="title" onclick="showDiv(this);"><label for="title">제목</label>
+        <input type="radio" name="category" id="date" onclick="showDiv(this);"><label for="date">날짜</label>
+        <input type="radio" name="category" id="writer" onclick="showDiv(this);"><label for="writer">작성자</label>
+    </fieldset>
+    <br>
+    <div id="titleBox" class="box">
+        <form action="#" method="post">
+        <label for="">검색할 제목을 입력하세요.</label>
+        <br>
+        <input type="search" name="title" size="50" id="">
+        <input type="submit" value="검색">
+    </form>
+    </div>
+
+    <div id="dateBox" class="box">
+        <form action="#" method="post">
+            <label for="">검색할 날짜를 선택하세요.</label>
+            <br>
+            <input type="date" value="">
+            <input type="date" value="">
+            <input type="submit" value="검색">
+        </form>
+    </div>
+
+    <div id="writerBox" class="box">
+        <form action="#" method="post">
+            <label for="">검색할 작성자 아이디를 입력하세요.</label>
+            <br>
+            <input type="search" name="writer" size="25" id="">
+            <input type="submit" value="검색">
+        </form>
+    </div>
+
+    <script>
+
+        function showDiv(obj) {
+            console.log(obj);   
+        }
+
+
+        // document.querySelector("#title")
+        // .addEventListener("click", function() {
+        //     document.querySelector("#titleBox")
+        //     .style.display = "block";
+        //     document.querySelector("#writerBox")
+        //     .style.display = "none";    
+        //     document.querySelector("#dateBox")
+        //     .style.display = "none";              
+        // });
+        // document.querySelector("#date")
+        // .addEventListener("click", function() {
+        //     document.querySelector("#titleBox")
+        //     .style.display = "none";  
+        //     document.querySelector("#dateBox")
+        //     .style.display = "block";                        
+        //     document.querySelector("#writerBox")
+        //     .style.display = "none";    
+            
+        // });
+        // document.querySelector("#writer")
+        // .addEventListener("click", function() {
+        //     document.querySelector("#titleBox")
+        //     .style.display = "none";            
+        //     document.querySelector("#dateBox")
+        //     .style.display = "none";
+        //     document.querySelector("#writerBox")
+        //     .style.display = "block";
+        // });
+
+
+        function showDiv(obj) {
+        // 만약(if) 선택한게 제목이면
+        var selected = obj.id;
+        switch(selected) {
+//        if(obj.id === "title") {
+            case "title" :
+            document.querySelector("#titleBox").style.display = "block";
+            document.querySelector("#dateBox").style.display = "none";
+            document.querySelector("#writerBox").style.display = "none";
+            break;
+        
+        // 만약(if) 선택한게 날짜면
+//        if(obj.id === "date") {
+            case "date" :
+            document.querySelector("#titleBox").style.display = "none";
+            document.querySelector("#dateBox").style.display = "block";
+            document.querySelector("#writerBox").style.display = "none";
+            break;
+        
+        // 만약(if) 선택한게 작성자면
+//        if(obj.id === "writer") {
+            case "writer" :
+            document.querySelector("#titleBox").style.display = "none";
+            document.querySelector("#dateBox").style.display = "none";
+            document.querySelector("#writerBox").style.display = "block";
+            break;
+        }}
+    </script>
+</body>
+</html>
