@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go green</title>  
+    <style>
+        div {
+            border:1px solid white;
+            box-sizing: border-box;
+            text-align: center;    /* 텍스트 중앙정렬*/
+            line-height: 1;
+        }   
+            
+        #container {
+                width : 1380px;
+                margin : 0 auto;
+            }
+        .main-img {
+            width:95%;
+            height:90%;
+            margin-left:8px;    
+        }
+        .header {
+            width:100%;
+            height: 100px;
+        }
+            .header-layer1{
+                width: 25%;
+                height:100%;
+                float: left;
+                
+            }
+            .header-layer2{
+                width:50%;
+                height:100%;
+                float: left;
+            }
+            .header-layer3{
+                width: 25%;
+                height:100%;
+                float: left;
+            }
+        .nav {
+            width:100%;
+            height:50px;
+        }
+            ul{
+            margin: 0;
+            padding:0;
+            height:100%;
+        }
+            ul li{
+            list-style-type: none;
+            float : left;     
+            width : 25%;
+            text-align: center;
+            background-color: rgb(62, 173,62)       
+        }    
+            ul li a {
+            text-decoration: none;
+            padding: 10px 20px; 
+            display:block;           /* 대충 사이즈 맞춰줌 */
+        }
+        
+            ul li a link, ul li a:visited {
+            color:black;            
+        }
+            ul a:hover{        /* hover = 포인터 갖다대면 바뀌는 동작 */
+            background-color: #31b931;
+            color : #fff;
+            --cursor : pointer;            
+        }
+        .main {
+            width:100%;
+            height:800px;
+        }
+            .main-layer1{
+                width:15%;
+                height:100%;
+                float:left;
+                background-image: url(../css_layout/img/left_img.jpg);
+                background-repeat : no-repeat;
+                background-size: cover;
+            }
+            .main-layer2{
+                width:65%;
+                height:100%;
+                float:left;
+            }
+                    #main-top{
+                    width:100%;
+                    height:50%;
+            }
+                    #top-left{
+                        width:50%;
+                        height:100%;                   
+                        float : left;
+                    }
+                    #top-right{
+                        width:50%;
+                        height:100%;
+                        float : left;
+                    }
+                    #main-bottom{
+                    width:100%;
+                    height:50%;
+                }
+                    #bottom-left{
+                    width:50%;
+                    height:100%;
+                    float:left;
+                }
+                    #bottom-right{
+                        width:50%;
+                        height:100%;
+                        float:left;
+                    }                
+            
+            .main-layer3{
+                width:20%;
+                height:100%;
+                float:left;
+            }
+            .login{
+                width : 100%;
+                height : 17%;
+            }
+            #aside-top{
+                width:100%;
+                height:60%;
+                background-image: url(../css_layout/img/right_img.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            #aside-bottom{
+                width:100%;
+                height:22%;
+                background-image: url(../css_layout/img/me_chat.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        .footer {
+            width:100%;
+            height:100px;
+        }
+    </style>
+</head>
+<body>   
+    <div id="container">
+        <div class="header">
+            <div class="header-layer1">
+                <img src="./css_layout/img/logo.jpg">            
+            </div>                
+            <div class="header-layer2">
+                <img src="./css_layout/img/mainlogo.jpg">
+            </div>
+            <div class="header-layer3">side</div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href=#">Home</a></li>
+                <li><a href=#">Profile</a></li>
+                <li><a href=#">Board</a></li>
+                <li><a href=#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="main-layer1">banner</div>
+            <div class="main-layer2">
+            <div id="main-top">
+                <div id="top-left">
+                    <img src="./css_layout/img/main_img1.jpg" height="90%;", width="60%">
+                    <div>나무를 심는 사람들</div>
+                </div>
+                <div id="top-right">
+                    <img src="./css_layout/img/main_img2.jpg" height="90%;", width="60%" ,alt="풀">
+                    <div>아이들에게 녹색 미래를</div>
+                </div>
+            </div>
+            <div id="main-bottom">
+                <div id="bottom-left">
+                    <img src="./css_layout/img/main_img3.jpg" height="90%;", width="60%", alt="산토끼">
+                    <div>설악산을 살리는 길</div>
+                </div>
+                <div id="bottom-right">
+                    <img src="./css_layout/img/main_img4.jpg" height="90%;",alt="북극곰">
+                    <div>사라지는 북극곰들</div>
+                </div>
+            </div>
+            
+
+
+        </div>
+            <div class="main-layer3">
+                <div class="login">
+                    <div class="login-header">
+                        <div class="login-header-layer1">
+                            <div class="id-field">
+                                <input type="text" placeholder="ID를 입력하세요.">
+                            </div>
+                            <div class="pw-field">
+                                <input type="password" placeholder="PW를 입력하세요.">
+                            </div>
+                        </div>
+                        <div class="login-header-layer2">
+                            <button class="btn">로그인</button>
+                        </div>
+                    </div>
+                    <div class="login-footer">
+                        <a href="#">회원가입</a>
+                        <a href="#">ID/PW찾기</a>
+                    </div>
+                </div>
+                <div id="aside-top"></div>
+                <div id="aside-bottom"></div>
+            </div>
+        </div>
+        <div class="footer">
+        <img src="../css_layout/img/footer.JPG" height="100%" alt="footer">
+    </div>
+</body>
+</html>

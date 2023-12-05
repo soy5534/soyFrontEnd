@@ -1,0 +1,49 @@
+.header {
+    width : 100%;
+    height : 100px;
+}
+    .header-layer1 {
+        width : 25%;
+        height : 100%;
+        background-color: azure;
+        float : left;
+    }
+    .header-layer2 {
+        width : 50%;
+        height : 100%;
+        background-color: blue;
+        float : left;
+    }
+    .header-layer3 {
+        width : 25%;
+        height : 100%;
+        background-color: beige;
+        float : left;
+    }
+.main {
+    width : 100%;
+    height : 500px;
+}
+    .main-layer1 {
+        width : 15%;
+        height : 100%;
+        background-color: red;
+        float : left;
+    }
+    .main-layer2 {
+        width : 55%;
+        height : 100%;
+        background-color: white;
+        float : left;
+    }
+    .main-layer3 {
+        width : 30%;
+        height : 100%;
+        background-color: rgb(100, 100, 168);
+        float : left;
+    }
+.footer {
+    width : 100%;
+    height : 100px;
+    background-color: deeppink;
+}

@@ -1,0 +1,7 @@
+/* reset = 기본 margin , padding 필요없다는 뜻 */
+
+*{                   /* "*" = 전체선택 */
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}

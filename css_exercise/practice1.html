@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navigation 만들어보기</title>
+    <style>
+        ul li {
+            list-style-type: none;   /* ul/li 점 없애기 */
+            float : left;    /* float: 정렬 */
+        }
+        a {
+            padding : 10px 20px;
+            background-color: #CCC;
+            text-decoration: none;
+        }
+        a link; a visited {
+            color:black;
+        }
+        a:hover {      /* hover = 포인터 갖다대면 바뀌는 동작 */
+            background-color: #000;
+            color : #fff;
+            --cursor : pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+    </ul>
+</body>
+</html>

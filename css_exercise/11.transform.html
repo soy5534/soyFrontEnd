@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 변형</title>
+    <style>
+        img {
+         width:250px;            
+        }
+        .trans1{
+            width: 500px;
+        }
+        .trans1:hover{
+            transform: translateX(50px);
+        }
+        .trans2:hover{                /* ★★ hover = 마우스 클릭(:active), 갖다대면(:hover) 동작함 ★★ */
+         transform : translateY(-50px);
+                 }
+        .trans3:hover{
+            transform: translate(50px, -50px);
+        }
+        .trans4:hover{
+            transform: scaleX(2)       /* scaleX(n) X축으로 N배 확대 - 잘 안쓰임 )  */
+        }
+        .trans5:hover{
+        transform: scaleY(2);
+        }
+        .trans6:hover{
+            margin-left: 70px;
+            transform: scale(1.5);   /* scale(n) = n배 확대 - 쇼핑몰 등에서 자주 쓰임 */
+        }
+
+        /* 회전하기 */
+        .trans7:active {
+            transform: skew(30deg);      /* skew(nDeg) = skew=비틀기 , deg = 각도 */
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <h1>2차원 변형</h1>
+
+<h3>좌우로 움직이기</h3>
+<img src="./img/flower1.PNG" class="trans1">
+<h3>위아래로 움직이기</h3>
+<img src="./img/flower2.PNG" class="trans2">
+<h3>대각선으로 움직이기</h3>
+<img src="./img/flower3.PNG" class="trans3">
+<h3>가로로 확대 축소</h3>
+<img src="./img/flower4.PNG" class="trans4">
+<h3>세로로 확대 축소</h3>
+<img src="./img/flower5.PNG" class="trans5">
+<h3>전체 확대 축소</h3>
+<img src="./img/river1.PNG" class="trans6">
+<h3>지정한 각도만큼 회전</h3>
+<img src="./img/river2.PNG" class="trans7">
+<h3>지정한 각도만큼 가로로 뒤틀기</h3>
+<img src="./img/city1.PNG" class="trans8">
+<h3>지정한 각도만큼 세로로 뒤틀기</h3>
+<img src="./img/tower1.PNG" class="trans9">
+<h3>지정한 각도만큼 전체 뒤틀기</h3>
+<img src="./img/forest1.PNG" class="trans10">
+
+</body>
+</html>

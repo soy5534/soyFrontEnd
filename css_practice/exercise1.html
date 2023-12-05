@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 part1</title>
+    <style>
+        /* 1.선택자(Selector)는 웹문서에서 어느 부분에 스타일을 적용할지 알려주는 것.
+        2. 선택자의 종류
+        - 태그 선택자
+        - 아이디 선택자
+        - 클래스 선택자
+        - 기본 속성 선택자
+        - 문자열 속성 선택자
+        - 자손 선택자(>)
+        - 후손 선택자( )
+        - 동작 선택자
+        - 일반 구조 선택자
+        - 형태 구조 선택자
+        - 반응 선택자
+        - 상태 선택자
+        - 속성 선택자
+        - 부정 선택자
+        */
+        /*태그 선택자 */
+        h1 {
+            color : red;
+            background-color: gold;
+        }
+#div1{
+    color:black;
+    background-color:white;
+}
+#div2{
+    color:blue;
+    background-color:bisque;
+}
+#div3{
+    color:black;
+    background-color:bisque;
+}
+/*3. 클래스 선택자 : 공통 스타일을 적용할 때 사용함 */
+.h1-style {
+    color:tomato;
+    background-color:blanchedalmond;
+}
+#good-taste{
+    color:red;
+    background-color:gold;
+}
+.redp{
+    color:blue;
+    background-color:skyblue;
+}
+/*4. 기본 속성 성택자 : 속성을 이용하여 선택함. */
+input[type=text]{
+    background-color:aquamarine;
+}
+/*5. 문자열 속성 선택자 : 속성을 이용하되 기능이 추가됨 */
+[name^=test] {
+    color : blue;
+}
+[class$=c1]{
+    background-color : violet;
+}
+/*속성값이 class로 시작하고 -를 포함하는 태그 선택*/
+[class|=class]{
+    background-color: red;
+}
+/*띄어쓰기로 구분되어 있는 값 중 특정값을 포함하는 태그 선택*/
+[name~=test]{
+    background-color:burlywood;
+}
+/* 속성값이 포함된 태그 선택 */
+[class*=p] {
+    background-color:red;
+}
+/* 자손/후손 선택자 */
+/*자손 선택자 */
+div>h2 {
+    color:green;
+}
+ul>li {
+    background-color:azure;
+}
+/*후손 선택자*/
+div li {
+    color : yellowgreen;
+}
+div h2 {
+    background-color: aquamarine;
+}
+div>ul>li {
+    background-color: blue;
+}
+
+    </style>
+</head>
+<body>
+    <h1>태그 선택자, 아이디 선택자, 클래스 선택자</h1>
+    <h1>레드향</h1>
+    <p id="good-taste">껍질에 붉은 빛이 돌아 레드향이라 불린다.</p>
+    <p>레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다.</p>
+    <p>비타민 C와 비타민 P가 풍부해 혈액순환, 감기예방 등에 좋은 것으로 알려져 있다.</p>
+    <p>정말 맛있는 과일이다.</p>
+<h1>기본 속성 선택자</h1>
+<!--빨간 글씨를 이용해서 태그를 선택하겠음.-->
+
+<h1>문자열 속성 선택자</h1>  
+<p name="test 1" id="i1" class="class-c1">Test1 글자입니다. </p>
+<p name="test 2" id="i2" class="">Test2 글자입니다. </p>
+<p name="test 3" id="i3" class="">Test3 글자입니다. </p>
+<p name="test 4" id="i4" class="">Test4 글자입니다. </p>
+<p name="test 5" id="i5" class="">Test5 글자입니다. </p>
+<p name="test 6" id="i6" class="class-c2">Test6 글자입니다. </p>
+<p name="test 7" id="i7" class="">Test7 글자입니다. </p>
+<p name="test 8" id="i8" class="class-p">Test8 글자입니다. </p>
+
+<h1>자손/후손 선택자</h1>
+<div>
+    <h2>div의 자손입니다.</h2>
+    <ul>
+        <li>div의 후손1입니다.</li>
+        <li>후손2입니다</li>
+        <li>ul의 자손입니다.</li>
+    </ul>
+</div>
+
+
+    <!--선택자-->
+    <h1 id="first-h1">스타일 CSS</h1>
+    <p>스타일과 스타일 시트</p>
+    <input type="text">
+    <div id="div1">div영역1</div>
+    <div id="div2">div영역2</div>
+    <div id="div3">div영역3</div>
+</body>
+</html>

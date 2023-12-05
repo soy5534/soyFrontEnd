@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 part2</title>
+    <style>
+        /* 선택자의 종류 part2
+        - 동위 선택자
+        - 일반 구조 선택자
+        - 형태 구조 선택자
+        - 반응 선택자
+        - 상태 선택자
+        - 속성 선택자
+        - 부정 선택자
+        */
+        /*
+           8. 동위선택자
+           - 기준은 미포함, 바로 뒤 여러개 선택
+           - 기준은 미포함, 바로 뒤 1개 선택
+           */
+           h5~p {
+            background-color: brown;
+           }
+           h5+p {
+            color : white;
+           }
+        /*
+           9. ★일반 구조 선택자
+            - :first-child
+            - :last-child
+            - :nth-child()
+            - :nth-last-child()
+        */   
+        #div-test1 p:first-child {
+            color:blue;
+            background-color:gold;
+        }
+        #div-test1 p:last-child {
+            color:blue;
+            background-color:gold;
+        }
+/*10. 형태 구조 선택자
+     일반 구조 선택자와 같은 역할이긴 하나 여러 태그가 섞여 있는 경우에 사용함.
+     - :first-of-type
+     - :last-of-type
+     - :nth-of-type()
+     - :nth-last-of-type()     
+*/
+#div-test4 p:last-of-type {
+    background-color:chocolate;
+}
+#div-test4 p:nth-of-type(2) {
+    background-color:chocolate;
+}
+/* 
+  11. 상태선택자(input태그와 관련)
+   - :checked, 체크 상태의 input태그를 선택함.
+   - :focus, 커서가 있는 input태그를 선택함.
+*/
+[type=checkbox]{
+    width : 50px;
+    height : 50px;
+}
+[type=text]:focus {
+    background-color:aquamarine;
+}
+/*
+    12. 속성선택자(select태그와 관련)
+    - :enabled, option태그에서 선택가능한 상태
+    - :disabled, option태그에서 선택불가능한 상태
+*/
+option:enabled {
+    background-color:green;
+    }
+option:disabled  {
+    background-color:red;
+}
+/*
+    13.링크선택자
+      - :link : 링크 들어가기 전
+      - :visited : 링크 들어간 후
+*/
+a:link {
+    color:red;
+}
+a:visited{
+    color : green;
+}
+/*
+    14. 부정선택자
+     - :not(선택자), 빼고 선택함.
+*/
+#div-test4 p:not(:last-of-type(2n)) {
+    background-color: red;
+}
+    </style>
+</head>
+<body>
+    <h1>동위선택자</h1>
+    <div>
+        <h4>자손1</h4>
+        <h5>자손2</h5>
+        <p>자손3</p>
+        <p>자손4</p>
+        <p>자손5</p>
+        <h5>자손2</h5>
+        <p>자손3</p>
+    </div>
+    <h1>일반 구조 선택자</h1>
+    <div>
+        <div id="div-test1"></div>
+        <p>테스트1-1 입니다</p>
+        <p>테스트1-2 입니다</p>
+        <p>테스트1-3 입니다</p>
+        <p>테스트1-4 입니다</p>
+        <p>테스트1-5 입니다</p>
+    </div>
+    <h1>형태 구조 선택자</h1>
+    <div id="div-test4">
+        <p>테스트 1p입니다</p>
+        <h4>테스트 h4의 1번째</h4>
+        <p>테스트 2p입니다</p>
+        <h4>테스트 h4의 2번째</h4>
+        <p>테스트 3p입니다</p>
+        <h4>테스트 h4의 3번째</h4>
+        <p>테스트 4p입니다</p>
+        <h4>테스트 h4의 4번째</h4>
+    </div>
+    <h1>상태, 속성, 링크 선택자</h1>
+    m action=""
+    <fieldset>
+        <legend>회원 정보</legend>
+        이름 : <input type="text"> <br>
+        아이디 : <input type="text"> <br>
+        이메일 : <input type="text"> <br>
+        취미 : <input type="checkbox">독서
+        <input type="checkbox">코딩
+        <input type="checkbox">수영 <br>
+        <select name="" id="">
+            <option value="java">자바</option>
+            <option value="oracle">오라클</option>
+            <option value="jdbc">JDBC</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>         
+        </select> <small>(속성선택자)</small><br>
+        <a href="https://www.iei.or.kr"KH정보교육원</a>
+    </fieldset>
+</body>
+</html>
