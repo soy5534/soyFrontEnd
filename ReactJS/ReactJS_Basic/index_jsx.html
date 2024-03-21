@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX 카운터</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        let counter = 0;
+        const root = document.querySelector("#root");
+        const element = <h1>Hello, React</h1>;
+        // 바벨이 하는 역할은 : React.createElement("h1",null,"Hello, React");
+        // React Component 사용
+        // 에전 클래스형 지금 함수형 컴포넌트
+        function Span(){
+            return (
+                <span>Total Clicks : 0</span>
+            )
+        }
+        function Button(){
+            return (
+                <button>Click me</button> // 쓰다 말았음
+            )
+        }
+        function Container(){
+            return (
+                <div>
+                    <Span />
+                    <Button />
+                </div>
+            )
+        }
+        function render(){
+            ReactDOM.render(<Container />, root);
+        }
+        render();
+
+        // let span = React.createElement("span",{style : {color : "red", margin : "10px"}},"Total clicks : 0");
+        // const btn = React.createElement("button"
+        //                                 ,{
+        //                                     onClick : () => {
+        //                                         counter++;
+        //                                         span = React.createElement("span"
+        //                                         , {style : {color : "red", margin : "10px"}},
+        //                                         `Total clicks : ${counter}`);
+        //                                         ReactDOM.render([span,btn], root);
+        //                                     }
+        //                                     , style : {backgroundColor : "gold"}
+        //                                 },"Click me");
+        // const container = React.createElement("div", null, [span, btn]);
+        // ReactDOM.render(container, root);
+
+    </script>
+</body>
+</html>

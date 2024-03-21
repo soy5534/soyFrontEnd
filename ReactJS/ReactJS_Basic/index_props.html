@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const root = document.querySelector("#root");
+        // h1태그를 함수형 컴포넌트로 만들어 사용
+        function Hone(){
+            return(
+            <h1>Props 배우기</h1>
+            )
+        }
+        function Btn(props){                        
+                // const [text, setText] = React.useState("Save");
+                // {}를 사용하여 변수화
+                return(
+                <button 
+                onClick={props.changeValue}
+                style = {
+                    {
+                        backgroundColor : `${props.color}`,
+                        color : "black",
+                        padding : "10px 20px",
+                        margin : "5px",
+                        borderRadius : 10
+                    }
+                }                
+                >{props.name}</button>
+                )            
+        }
+
+        function App(){
+            const [text, setText] = React.useState("Save");
+            const changeValue = () => {setText("Reset")};
+            return (
+                <div>
+                    <Hone />
+                    <Btn name = {text} changeValue={changeValue}/>
+                    <Btn name = "Update" color="gold" />
+                    <Btn name = "Delete" color="skyblue" />
+                    <Btn name = "Submit" color="yellowgreen" />
+                </div>
+            )
+        }
+        // 렌더링을 해줘야 눈에 보인다.
+        ReactDOM.render(<App />, root);
+    </script>
+</body>
+</html>

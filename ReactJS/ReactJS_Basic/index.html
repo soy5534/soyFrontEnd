@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 카운터</title>
+</head>
+<body>
+    <span>Total clicks : 0 </span>
+    <button id="addCounting">Click me</button>
+    <script>
+        let counter = 0;
+        const span = document.querySelector("span");
+        const addCount = () => {
+            counter++;
+            span.innerText = `Total clicks : ${counter}`;
+        }
+        document.querySelector("#addCounting")
+        .addEventListener("click", addCount);
+    </script>
+</body>
+</html>

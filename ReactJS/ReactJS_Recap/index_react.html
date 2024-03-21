@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        const root = document.querySelector("#root");
+        let counter = 0;
+        let span = React.createElement("span", {}, "Total Clicks : 0");
+        const btn = React.createElement("button", {}, "Click Me");
+        const container = React.createElement("div", null, [span,btn]);
+        ReactDOM.render(container, root);
+    </script>
+</body>
+</html>

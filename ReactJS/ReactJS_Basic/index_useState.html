@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const root = document.querySelector("#root");
+        // 카운터에서 버튼을 클릭하면 +1 되어서 보이도록 하기 위해
+        // 적어야하는 것들 : let counter, handlerClick(), render(), ...
+        
+        // let counter = 0;
+        // function countUp(){
+        //     counter++;
+        //     render();
+        // }
+        function App(){
+            // const data = React.useState(100);
+            // console.log(data);
+            const [counter, setCounter] = React.useState(0);
+            const handlerClick = () => {
+                setCounter(counter+1);
+            }           
+            const [status, setStatus] = React.useState("OPEN");
+            const handlerChange = () => {
+                setStatus("CLOSE");
+
+            }
+            return(
+                <div>
+                    <span>Total Clicks : {counter} </span>
+                    <button onClick={handlerClick}>Click Me</button>
+                    <h2>State : {status}</h2> 
+                    <button onClick={handlerChange}>Change Text</button>
+                </div>
+            )
+        }
+        function handlerClick(){
+            counter++;
+            render();
+        }
+        function render(){
+            ReactDOM.render(<App />, root);
+        }
+        render();
+
+
+        // let counter = 0;
+        // function Span(){
+        //     return (
+        //         <span>Total Clicks : {counter} </span>
+        //     )
+        // }
+        // function Button(){
+        //     return(
+        //         <button onClick={countUp}>Click Me</button>
+        //     )
+        // }
+        // function Container(){
+        //     return(
+        //         <div>
+        //             <Span />
+        //             <Button />
+        //             </div>
+        //     )
+        // }
+       
+    </script>
+</body>
+</html>

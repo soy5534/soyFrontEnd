@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>useState 카운터</title>
+        <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+    </head>
+    <body>
+       <div id="root"></div> 
+       <script type="text/babel">
+            const root = document.querySelector("#root");
+            function App() {
+                const [counter, setCounter] = React.useState(0);
+                const handlerClick = () => {
+                    setCounter(counter+1);                    
+                }
+                return (
+                    <div>
+                        <span>Total Clicks : {counter}</span>
+                        <button onClick={handlerClick}>Click Me</button>
+                    </div>
+                )
+            }
+            function render(){
+                ReactDOM.render(<App />, root);
+            }
+            render();
+       </script>
+    </body>
+</html>

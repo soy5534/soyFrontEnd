@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const root = document.querySelector("#root");
+        function Btn(props){
+            return(
+                <button
+                style={
+                    {backgroundColor : props.color}
+                }>{props.name}</button>
+            )
+        }
+        function App(){
+            return (
+                <div>
+                    <h1>Props 복습하기</h1>
+                    <Btn name="Save" color="gold"/>
+                    <Btn name="Update" color="tomato"/>
+                    <Btn name="Delete" color="orange"/>
+                    <Btn name="Submit" color="green"/>
+                </div>
+            )
+        }
+        ReactDOM.render(<App />, root);
+    </script>
+</body>
+</html>
