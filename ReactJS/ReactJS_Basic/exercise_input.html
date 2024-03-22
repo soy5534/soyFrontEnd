@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const root = document.querySelector("#root");   
+
+        function MinutesToHours(){
+            const [hours, setHours] = React.useState(0);
+            const [minutes, setMinutes] = React.useState(0);
+            const [isAble, setIsAble] = React.useState(false);           
+            const handlerMinutes = (event) => {
+                // console.log(event.target.value);
+                const minVal = event.target.value;
+                setMinutes(minVal);
+                setHours(Math.round((minVal/60)*100)/100);
+            }
+            const handlerHours = (event) => {
+                const hourVal = event.target.value;
+                setHours(hourVal);
+                setMinutes(hourVal * 60)
+            }
+            const valueReset = () => {
+                setHours(0);
+                setMinutes(0);
+            }
+            const flip = () => {
+                setIsAble(!isAble);
+            }
+            return(
+                <div>
+                    <h1>시분 컨버터</h1>
+                    <label>분</label>
+                    <input type="number" onChange={handlerMinutes} value={minutes} disabled={isAble} /> <br/>
+                    <label>시간</label>
+                    <input type="number" onChange={handlerHours} value={hours} disabled={!isAble}/> <br/>                    
+                    <button onClick={valueReset }>리셋</button>
+                    <button onClick={flip}>전환</button>                   
+                </div>
+            )
+        }
+
+        function KimometerToMile(){
+            const [miles, setMiles] = React.useState(0);
+            const [kilometers, setKilometers] = React.useState(0);
+            const [isAble, setIsAble] = React.useState(false);
+            const handlerMiles = (event) => {
+                const mileVal = event.target.value;
+                setMiles(mileVal);
+                setKilometers(Math.round((mileVal/0.6214)*1000)/1000);
+            }
+            const handlerKilometers = (event) => {
+                const kilometerVal = event.target.value;
+                setKilometers(kilometerVal);
+                setMiles(Math.round((kilometerVal*0.6214)*1000)/1000);
+            }
+            const flip = () => {
+                setIsAble(!isAble);
+            }
+            const valueReset = () => {
+                setMiles(0);
+                setKilometers(0);
+            }
+            return(
+                <div>
+                    <h1>킬로마일 컨버터</h1>
+                    <label>킬로미터</label>
+                    <input type="number" onChange={handlerKilometers} value={kilometers} disabled={isAble} /> <br />
+                    <label>마일</label>                    
+                    <input type="number" onChange={handlerMiles} value={miles} disabled={!isAble} /> <br />
+                    <button onClick={valueReset}>리셋</button>
+                    <button onClick={flip}>전환</button>
+                </div>
+            )
+        }
+    
+    function App(){
+            const [menuIndex, setMenuIndex] = React.useState("0");
+            const handlerSelector = (event) => {
+                console.log(event.target.value);
+                setMenuIndex(event.target.value)
+            }
+            return (
+                <div>
+                    <h1>Soy Converter</h1>
+                    <select onChange={handlerSelector}>
+                        <option value="0">select converter</option>
+                        <option value="1">Minutes to Hours</option>
+                        <option value="2">Kilometers to Miles</option>
+                    </select>
+                    {menuIndex === '0' ? <h2>컨버터를 선택하지 않았어요!! 컨버터를 선택해주세요.</h2> : null}
+                    {menuIndex === '1' ? <MinutesToHours /> : null}
+                    {menuIndex === '2' ? <KimometerToMile /> : null}
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App />, root);
+
+    </script>
+</body>
+</html>
