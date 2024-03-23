@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ES6 Basic</title>
+    </head>
+    <body>
+        <h1>ESC6에서는..?</h1>
+        <h2>ES6에 추가된 내용들</h2>
+        <p>
+            Binary and Octal Literals, Template Strings,
+            let + const, Default + Rest + Spread,
+            Arrow and Lexcial This, Classes,
+            Enhanced Object Literals Destructuring,
+            Iterators + For..Of, Generators, Comprehensions,
+            Unicode, Modules, Module Loaders,
+            Map + Set + WeakMap + WeakSet,
+            Proxies, Symbols, Subclassable Build-ins,
+            Math + Number + String + Object Apis,
+            Promises, Reflect Api, Tail Calls
+        </p>
+        <h2>공부할 내용들</h2>
+        <p>
+            1. 값, 변수, 컬렉션<br>
+            - let, const <br>
+            - Template Strings<br>
+            - 향상된 JSON 표현식
+            - 객체 비구조화 <br>
+            - 배열 비구조화 <br>
+            - Set< <br>
+            - Map< <br>
+            2. 제어구조<br>
+            - <b>Rest Parameters</b> <br>
+            - <b>Spread Operator</b> <br>
+            3. 함수<br>
+            - Default Value <br>
+            - Arrow Function <br>
+            4. 객체지향<br>
+            - Class <br>
+            - 은닉화 <br>
+            - static 멤버 <br>
+            - 은닉화를 위한 게터/세터 <br>
+        </p>
+        <script>
+           // ########## Rest Parameters ##########
+           function print(x, y, ...values){
+            console.log(x);
+            console.log(y);
+            values.forEach(function(value){
+                console.log(value);
+            });
+           }
+           print(4, 30);
+           print(4, 30, 2024, "종강");
+           // ######### Spread Operator ##########
+           function calc(a, b, c){
+            console.log(a);
+            console.log(b);
+            console.log(c);
+           }
+
+            // calc(23, 11, 11); // 이 부분은 함수 호출입니다.
+
+            let nums = [2023, 11, 13];
+            calc(...nums); // 레스트 매개변수를 사용하여 배열의 요소를 전달합니다.
+
+            let set = new Set([2, 4, 6]);
+            let numArrs = [...set];
+            numArrs.forEach(function(value) {
+                console.log(`값: ${value}`); // 따옴표와 닫는 괄호가 빠져 있었습니다.
+            });
+
+            let map = new Map([["name", "일용자"], ["age", 33]]);
+            let setArrs = [...map]; // 변수 이름이 맞지 않았습니다.
+            setArrs.forEach(function(value, key) {
+                console.log(`${key} : ${value}`);
+            });
+
+            console.log([...map][0][1]); // 첫 번째 맵 엔트리의 값을 출력합니다.
+            console.log([...map][1][1]); // 두 번째 맵 엔트리의 값을 출력합니다.
+
+        </script>
+    </body>
+</html>

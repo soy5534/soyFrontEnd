@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ES6 Basic</title>
+    </head>
+    <body>
+        <h1>ESC6에서는..?</h1>
+        <h2>ES6에 추가된 내용들</h2>
+        <p>
+            Binary and Octal Literals, Template Strings,
+            let + const, Default + Rest + Spread,
+            Arrow and Lexcial This, Classes,
+            Enhanced Object Literals Destructuring,
+            Iterators + For..Of, Generators, Comprehensions,
+            Unicode, Modules, Module Loaders,
+            Map + Set + WeakMap + WeakSet,
+            Proxies, Symbols, Subclassable Build-ins,
+            Math + Number + String + Object Apis,
+            Promises, Reflect Api, Tail Calls
+        </p>
+        <h2>공부할 내용들</h2>
+        <p>
+            1. 값, 변수, 컬렉션<br>
+            - let, const <br>
+            - Template Strings<br>
+            - 향상된 JSON 표현식
+            - 객체 비구조화 <br>
+            - 배열 비구조화 <br>
+            - Set< <br>
+            - Map< <br>
+            2. 제어구조<br>
+            - Rest Parameters <br>
+            - Spread Operator <br>
+            3. 함수<br>
+            - Default Value <br>
+            - Arrow Function <br>
+            4. 객체지향<br>
+            - <b>Class</b> <br>
+            - 은닉화 <br>
+            - static 멤버 <br>
+            - 은닉화를 위한 게터/세터 <br>
+        </p>
+        <script>
+            // 기존의 방식
+            // 1. JS에서 클래스는 function을 이용하여 선언
+            function Exam(kor, eng, math){
+                this.kor = kor || 0;
+                this.eng = eng || 0;
+                this.math = math || 0;
+            }
+            let exam = new Exam();
+            // 2. prototype 활용
+            let protoData = {name : "일용자", age : 33};
+            function Person(){
+
+            }
+            Person.prototype = protoData;
+            Person.prototype.introduce = function() {
+                return "안녕하세요. " + this.name + "입니다. 반갑습니다.";
+            }
+            let person = new Person();
+            console.log(`exam.kor : ${exam.kor}`);
+            console.log(typeof exam);
+            console.log(`person.name : ${person.name}`);
+            console.log(typeof person);
+
+            // ES6에서의 새로운 방식
+            {
+                // 은닉화 방법
+                class Exam {
+                    #kor;
+                    #eng;
+                    #math;
+                    // static 멤버 정하기
+                    static #msg = "Exam 클래스 정보";
+                    constructor(kor=0, eng=0, math=0){
+                        this.#kor = kor;
+                        this.#eng = eng;
+                        this.#math = math;                                                
+                    }
+                    get kor(){
+                    }
+                    set kor(kor){
+                        this.#kor = kor;
+                    }
+                    get eng(){
+
+                    }
+                    set eng(eng){
+                        this.#eng = eng;
+                    }
+                    get math(){
+                        return this.#math;
+                    }
+                    set math(math){
+                        this.#math = math;
+                    }
+                    #total(){
+                        return this.#kor + this.#eng + this.#math;
+                    }
+                    avg(){
+                        return this.#total()/3.0;
+                    }
+                    static print(){
+                        return Exam.#msg;
+                    }
+                }
+            
+            let exam = new Exam(11,22,33);
+            // exam.setKor(33);
+            console.log(exam.kor);
+            console.log(exam.eng);
+            console.log(exam.math);
+            console.log(exam.total()); // #을 써서 은닉화를 했기 때문에 exam.total is not a function로 접근불가
+            console.log(exam.avg());
+        }
+        class Product {
+            constructor(name="토비의 스프링", price=35000){
+                this.name = name;
+                this.price = price;
+            }
+            introduce(){
+                return this.name + "의 가격은 " + this.price +"원 입니다.";
+            }
+        }
+        </script>
+    </body>
+</html>

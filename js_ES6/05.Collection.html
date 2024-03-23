@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ES6 Basic</title>
+    </head>
+    <body>
+        <h1>ESC6에서는..?</h1>
+        <h2>ES6에 추가된 내용들</h2>
+        <p>
+            Binary and Octal Literals, Template Strings,
+            let + const, Default + Rest + Spread,
+            Arrow and Lexcial This, Classes,
+            Enhanced Object Literals Destructuring,
+            Iterators + For..Of, Generators, Comprehensions,
+            Unicode, Modules, Module Loaders,
+            Map + Set + WeakMap + WeakSet,
+            Proxies, Symbols, Subclassable Build-ins,
+            Math + Number + String + Object Apis,
+            Promises, Reflect Api, Tail Calls
+        </p>
+        <h2>공부할 내용들</h2>
+        <p>
+            1. 값, 변수, 컬렉션<br>
+            - let, const <br>
+            - Template Strings<br>
+            - 향상된 JSON 표현식
+            - 객체 비구조화 <br>
+            - 배열 비구조화 <br>
+            - <b>Set</b> <br>
+            - <b>Map</b> <br>
+            2. 제어구조<br>
+            - Rest Parameters <br>
+            - Spread Operator <br>
+            3. 함수<br>
+            - Default Value <br>
+            - Arrow Function <br>
+            4. 객체지향<br>
+            - Class <br>
+            - 은닉화 <br>
+            - static 멤버 <br>
+            - 은닉화를 위한 게터/세터 <br>
+        </p>
+        <script>
+           // ############# Set 콜렉션 #############
+           // Set의 특징, 순서가 없고 중복을 허용하지 않음.
+           // Set의 용도, 중복 제거
+            let nums = [1, 1, 2, 3, 2, 4, 5, 5, 6];            
+            // for(let i = 0; i < nums.length; i++){
+            //     set.add(nums[i]);
+            // }
+            let set = new Set(nums);
+            console.log(set.size); // set의 size를 보면 중복이 제거되어 6이 됨.
+            // set.forEach(function(value, key){
+            //     console.log(`${key}:${value}`);
+            // });
+            // for(let v of set) { console.log(v); }
+            for(let [key,value] of set.entries()){
+                console.log(`${key}:${value}`);
+            }
+            if(set.has(1)){
+                console.log("1이 있음.");
+            }
+            set.clear();
+            console.log(set.size); // 전부 삭제되었기 때문에 크기는 0이 됨.
+            // ############ Map 콜렉션 #############
+            // key와 value 이루어진 자료구조, 지역번호(02 - 서울, 031 - 경기도, ...)
+            // 중복불가
+            let exam = new Map([["kor", 55], ["eng", 66],["math", 77]]);
+            console.log(exam.get("kor"));
+            console.log(exam.get("eng"));
+            console.log(exam.get("math"));
+            console.log("크기 : " + exam.size);
+            for(let [key,value] of exam){
+                console.log(`${key}:${value}`);
+            }
+
+        </script>
+    </body>
+</html>

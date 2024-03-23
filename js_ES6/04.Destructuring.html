@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ES6 Basic</title>
+    </head>
+    <body>
+        <h1>ESC6에서는..?</h1>
+        <h2>ES6에 추가된 내용들</h2>
+        <p>
+            Binary and Octal Literals, Template Strings,
+            let + const, Default + Rest + Spread,
+            Arrow and Lexcial This, Classes,
+            Enhanced Object Literals Destructuring,
+            Iterators + For..Of, Generators, Comprehensions,
+            Unicode, Modules, Module Loaders,
+            Map + Set + WeakMap + WeakSet,
+            Proxies, Symbols, Subclassable Build-ins,
+            Math + Number + String + Object Apis,
+            Promises, Reflect Api, Tail Calls
+        </p>
+        <h2>공부할 내용들</h2>
+        <p>
+            1. 값, 변수, 컬렉션<br>
+            - let, const <br>
+            - Template Strings<br>
+            - 향상된 JSON 표현식
+            - <b>객체 비구조화</b>
+            - <b>배열 비구조화</b>
+            - Set <br>
+            - Map <br>
+            2. 제어구조<br>
+            - Rest Parameters <br>
+            - Spread Operator <br>
+            3. 함수<br>
+            - Default Value <br>
+            - Arrow Function <br>
+            4. 객체지향<br>
+            - Class <br>
+            - 은닉화 <br>
+            - static 멤버 <br>
+            - 은닉화를 위한 게터/세터 <br>
+        </p>
+        <script>
+           // Destructuring
+           // 1. Object(객체) 비구조화
+           // 2. Array(배열) 비구조화
+        //    let kor = 55;
+        //    let eng = 66;
+        //    let math = 77;
+        //    let exam = {
+        //     kor : 55,
+        //     eng : 66,
+        //     math : 77
+        //    }
+        //    console.log(exam.kor);
+        //    console.log(exam.eng);
+        //    console.log(exam.math);
+        function printExam(exam){
+            let total = exam.kor + exam.eng + exam.math;
+            // let kor = exam.kor;
+            // let eng = exam.eng;
+            // let math = exam.math;
+            let {kor, eng, math} = exam; // 비구조화 할당
+            let (kor, eng, math, total = kor + eng + math) = exam;
+            // console.log("국어 : " + kor + ", 영어 : " + eng + ", 수학 : " + math);
+            console.log(`국어 :   ${kor}  , 영어 :  ${eng}  , 수학 : ${math}`); // 백틱과 ${}를 사용하여 (" , +)를 대체함.
+            console.log("합계 : " + total)
+        }
+
+        let kor = 40;
+        let eng = 50;
+        let math = 60;
+        let exam = {kor, eng, math};
+        printExam(exam);
+
+        exam = {
+            kor1 : 33,
+            eng1 : 44,
+            math1 : 55,
+            student : {
+                name : "일용자",
+                age : 33
+            }
+        }
+        // let {kor1, eng1, math1, student:{name}, student:{age}} = exam;
+        let {kor1:korean, student:{name, age}} = exam;
+        // console.log(kor1);
+        console.log(name);
+        console.log(age);
+        console.log(korean);
+        
+            // ########## 2. Array Desctructuring ###########
+            let korArrs = [33, 44, 55];
+            // korArrs = new Array(3);
+            // korArrs[0] = 44;
+            // korArrs[1] = 55;
+            // korArrs[2] = 66;
+            // console.log(korArrs.join());
+            // kor1 = korArrs[0];
+            // kor2 = korArrs[1];
+            // kor3 = korArrs[2];
+            // console.log("1 : " + kor1 + ", 2 : " + kor2 + ", 3 : " +kor3);
+            let {kor1, kor2, kor3} = korArrs;
+            console.log(`1 : ${kor1}, 2 : ${kor2}, 3 : ${kor3}`);
+            let temp = [40, 50, 60];
+            let [, , num3] = temp;
+            console.log(`3 : ${num3 }`);
+
+            // ######### 순서 바꾸기 #########
+            let x = 24;
+            let y = 4;
+            let z = 30;
+            // let temp2 = z;
+            // z = x;
+            // x = temp2;
+
+            // console.log(`${x}년 ${y}월 ${z}일`);
+            console.log(`${x}일 ${y}월 ${z}년`);
+
+            // 추가적인 기본값 설정 방법
+            let scores = [99, 88, 77];
+            [js, html, css, jquery=66] = scores;
+            console.log(jquery);
+
+        </script>
+    </body>
+</html>

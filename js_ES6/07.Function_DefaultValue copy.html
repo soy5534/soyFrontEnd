@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ES6 Basic</title>
+    </head>
+    <body>
+        <h1>ESC6에서는..?</h1>
+        <h2>ES6에 추가된 내용들</h2>
+        <p>
+            Binary and Octal Literals, Template Strings,
+            let + const, Default + Rest + Spread,
+            Arrow and Lexcial This, Classes,
+            Enhanced Object Literals Destructuring,
+            Iterators + For..Of, Generators, Comprehensions,
+            Unicode, Modules, Module Loaders,
+            Map + Set + WeakMap + WeakSet,
+            Proxies, Symbols, Subclassable Build-ins,
+            Math + Number + String + Object Apis,
+            Promises, Reflect Api, Tail Calls
+        </p>
+        <h2>공부할 내용들</h2>
+        <p>
+            1. 값, 변수, 컬렉션<br>
+            - let, const <br>
+            - Template Strings<br>
+            - 향상된 JSON 표현식
+            - 객체 비구조화 <br>
+            - 배열 비구조화 <br>
+            - Set< <br>
+            - Map< <br>
+            2. 제어구조<br>
+            - <b>Rest Parameters</b> <br>
+            - <b>Spread Operator</b> <br>
+            3. 함수<br>
+            - Default Value <br>
+            - Arrow Function <br>
+            4. 객체지향<br>
+            - Class <br>
+            - 은닉화 <br>
+            - static 멤버 <br>
+            - 은닉화를 위한 게터/세터 <br>
+        </p>
+        <script>
+           // ########## Default Value ##########
+           // @RequestMapping(value = "currentPage", required=false, defaultValue="1")
+           function add(num1=0, num2=0){
+                //num1 = num1 || 0;
+                //num2 = num2 || 0;
+                return num1 + num2;
+           }
+           console.log(add(4,30));
+           console.log(add(10)); // NaN 오류 -> Not a Number
+           // ########## Arrow Function ##########
+        //    window.addEventListener("load", function(){
+        //         alert("Load Complete");                
+        //    });
+            // window.addEventListener("load", ()=>{
+            //     alert("Load Complete");
+            // })
+        const substract = (num1, num2) => {
+            return num1-num2;
+        }
+        console.log(substract(10,4));
+        // 응용
+        let nums = [20, 24, 4, 30, 12, 50];
+        function compare(x, y){
+            return x-y;
+        }
+        nums.sort((x,y) => x-y);
+        console.log(nums);
+
+        </script>
+    </body>
+</html>
